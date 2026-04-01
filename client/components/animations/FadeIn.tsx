@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface FadeInProps {
@@ -14,15 +13,13 @@ export function FadeIn({
   duration = 0.8,
   className = "",
 }: FadeInProps) {
+  const style = {
+    animation: `fadeIn ${duration}s ease-in-out ${delay}s both`,
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration, delay }}
-      viewport={{ once: true, margin: "-100px" }}
-      className={className}
-    >
+    <div className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

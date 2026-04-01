@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface ImageZoomProps {
@@ -8,13 +7,10 @@ interface ImageZoomProps {
 
 export function ImageZoom({ children, className = "" }: ImageZoomProps) {
   return (
-    <motion.div
-      initial={{ scale: 1 }}
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.4 }}
-      className={`overflow-hidden ${className}`}
-    >
-      {children}
-    </motion.div>
+    <div className={`overflow-hidden ${className} group cursor-pointer`}>
+      <div className="transform transition-transform duration-400 group-hover:scale-105">
+        {children}
+      </div>
+    </div>
   );
 }

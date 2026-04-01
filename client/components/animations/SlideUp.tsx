@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface SlideUpProps {
@@ -14,15 +13,13 @@ export function SlideUp({
   duration = 0.8,
   className = "",
 }: SlideUpProps) {
+  const style = {
+    animation: `slideUp ${duration}s ease-out ${delay}s both`,
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration, delay }}
-      viewport={{ once: true, margin: "-100px" }}
-      className={className}
-    >
+    <div className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }
