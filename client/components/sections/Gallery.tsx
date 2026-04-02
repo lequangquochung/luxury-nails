@@ -4,14 +4,14 @@ import { ImageZoom } from "../animations/ImageZoom";
 
 export function Gallery() {
   const galleryItems = [
-    { id: 1, title: "Classic Red", category: "Manicure" },
-    { id: 2, title: "Ombre Art", category: "Nail Art" },
-    { id: 3, title: "Glitter Accent", category: "Design" },
-    { id: 4, title: "French Polish", category: "Classic" },
-    { id: 5, title: "Marble Effect", category: "Art" },
-    { id: 6, title: "Floral Design", category: "Art" },
-    { id: 7, title: "Gold Accent", category: "Luxury" },
-    { id: 8, title: "Minimalist", category: "Modern" },
+    { id: 1, title: "Classic Red", category: "Manicure", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
+    { id: 2, title: "Ombre Art", category: "Nail Art", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop&crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjcyNDAwMDAw" },
+    { id: 3, title: "Glitter Accent", category: "Design", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
+    { id: 4, title: "French Polish", category: "Classic", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
+    { id: 5, title: "Marble Effect", category: "Art", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
+    { id: 6, title: "Floral Design", category: "Art", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
+    { id: 7, title: "Gold Accent", category: "Luxury", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
+    { id: 8, title: "Minimalist", category: "Modern", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
   ];
 
   return (
@@ -36,32 +36,23 @@ export function Gallery() {
           {galleryItems.map((item, index) => (
             <FadeIn key={item.id} delay={index * 0.05}>
               <ImageZoom className="h-64 md:h-72 rounded-xl cursor-pointer group">
-                <div className="w-full h-full bg-gradient-to-br from-muted to-accent/20 flex items-center justify-center relative overflow-hidden">
-                  {/* Placeholder with elegant design */}
-                  <div className="text-center z-10">
-                    <div className="w-16 h-16 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-8 h-8 text-primary"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                    </div>
-                    <h3 className="font-serif font-semibold text-primary text-lg mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-foreground/50">{item.category}</p>
-                  </div>
+                <div className="w-full h-full relative overflow-hidden bg-muted">
+                  {/* Image */}
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
 
                   {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                    <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="font-serif font-semibold text-white text-lg mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-white/80">{item.category}</p>
+                    </div>
+                  </div>
                 </div>
               </ImageZoom>
             </FadeIn>

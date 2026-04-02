@@ -163,22 +163,14 @@ export function Contact() {
             </div>
           </SlideUp>
 
-          {/* Map Placeholder */}
+          {/* Map Image */}
           <SlideUp>
-            <div className="rounded-xl overflow-hidden h-96 bg-gradient-to-br from-muted to-accent/10 flex items-center justify-center border border-border">
-              <div className="text-center">
-                <svg
-                  className="w-20 h-20 mx-auto mb-4 opacity-30"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
-                </svg>
-                <p className="text-foreground/50 font-medium">Google Maps Embed</p>
-                <p className="text-sm text-foreground/30 mt-2">
-                  Interactive map will be displayed here
-                </p>
-              </div>
+            <div className="rounded-xl overflow-hidden h-96 border border-border shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1524368535623-2bda13446a60?w=600&h=400&fit=crop"
+                alt="Luxury nail salon location map"
+                className="w-full h-full object-cover"
+              />
             </div>
           </SlideUp>
         </div>
