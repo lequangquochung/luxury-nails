@@ -12,90 +12,90 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    /* Luxury Nail Salon Theme - Light Blue & Dark Blue */
-    --background: 210 40% 97%;
-    --foreground: 210 40% 15%;
+    /* Luxury Nail Salon Theme - Ivory, Beige, Dark Gray, Teal, Gold */
+    --background: 30 26% 96%;
+    --foreground: 0 0% 19%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 40% 15%;
+    --card-foreground: 0 0% 19%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 15%;
+    --popover-foreground: 0 0% 19%;
 
-    --primary: 210 50% 25%;
-    --primary-foreground: 210 40% 97%;
+    --primary: 0 0% 19%;
+    --primary-foreground: 30 26% 96%;
 
-    --secondary: 210 35% 92%;
-    --secondary-foreground: 210 50% 25%;
+    --secondary: 30 24% 93%;
+    --secondary-foreground: 0 0% 19%;
 
-    --muted: 210 30% 88%;
-    --muted-foreground: 210 20% 40%;
+    --muted: 30 20% 92%;
+    --muted-foreground: 0 0% 42%;
 
-    --accent: 210 70% 55%;
-    --accent-foreground: 210 40% 15%;
+    --accent: 165 10% 56%;
+    --accent-foreground: 0 0% 19%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 32% 90%;
-    --input: 210 35% 95%;
-    --ring: 210 50% 25%;
+    --border: 30 20% 90%;
+    --input: 30 26% 97%;
+    --ring: 0 0% 19%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 210 40% 97%;
+    --sidebar-background: 30 26% 96%;
 
-    --sidebar-foreground: 210 40% 15%;
+    --sidebar-foreground: 0 0% 19%;
 
-    --sidebar-primary: 210 50% 25%;
+    --sidebar-primary: 0 0% 19%;
 
-    --sidebar-primary-foreground: 210 40% 97%;
+    --sidebar-primary-foreground: 30 26% 96%;
 
-    --sidebar-accent: 210 70% 55%;
+    --sidebar-accent: 165 10% 56%;
 
-    --sidebar-accent-foreground: 210 40% 15%;
+    --sidebar-accent-foreground: 0 0% 19%;
 
-    --sidebar-border: 210 32% 90%;
+    --sidebar-border: 30 20% 90%;
 
-    --sidebar-ring: 210 50% 25%;
+    --sidebar-ring: 0 0% 19%;
   }
 
   .dark {
-    --background: 210 50% 12%;
-    --foreground: 210 40% 95%;
+    --background: 0 0% 14%;
+    --foreground: 30 26% 92%;
 
-    --card: 210 50% 18%;
-    --card-foreground: 210 40% 95%;
+    --card: 0 0% 20%;
+    --card-foreground: 30 26% 92%;
 
-    --popover: 210 50% 18%;
-    --popover-foreground: 210 40% 95%;
+    --popover: 0 0% 20%;
+    --popover-foreground: 30 26% 92%;
 
-    --primary: 210 40% 95%;
-    --primary-foreground: 210 50% 25%;
+    --primary: 30 26% 92%;
+    --primary-foreground: 0 0% 19%;
 
-    --secondary: 210 45% 24%;
-    --secondary-foreground: 210 40% 95%;
+    --secondary: 0 0% 26%;
+    --secondary-foreground: 30 26% 92%;
 
-    --muted: 210 40% 32%;
-    --muted-foreground: 210 30% 78%;
+    --muted: 0 0% 32%;
+    --muted-foreground: 30 20% 78%;
 
-    --accent: 210 70% 55%;
-    --accent-foreground: 210 50% 25%;
+    --accent: 165 10% 56%;
+    --accent-foreground: 0 0% 19%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 45% 25%;
-    --input: 210 50% 22%;
-    --ring: 210 40% 95%;
-    --sidebar-background: 210 50% 16%;
-    --sidebar-foreground: 210 40% 95%;
-    --sidebar-primary: 210 40% 95%;
-    --sidebar-primary-foreground: 210 50% 25%;
-    --sidebar-accent: 210 70% 55%;
-    --sidebar-accent-foreground: 210 50% 25%;
-    --sidebar-border: 210 45% 25%;
-    --sidebar-ring: 210 40% 95%;
+    --border: 0 0% 25%;
+    --input: 0 0% 22%;
+    --ring: 30 26% 92%;
+    --sidebar-background: 0 0% 16%;
+    --sidebar-foreground: 30 26% 92%;
+    --sidebar-primary: 30 26% 92%;
+    --sidebar-primary-foreground: 0 0% 19%;
+    --sidebar-accent: 165 10% 56%;
+    --sidebar-accent-foreground: 0 0% 19%;
+    --sidebar-border: 0 0% 25%;
+    --sidebar-ring: 30 26% 92%;
   }
 }
 
