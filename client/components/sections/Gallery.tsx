@@ -15,9 +15,9 @@ export function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="py-20 md:py-32 bg-background px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="py-12 md:py-20 bg-background px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <SlideUp>
             <div className="inline-block px-4 py-2 bg-accent/10 rounded-full mb-4">
               <span className="text-accent font-medium text-sm">Gallery</span>

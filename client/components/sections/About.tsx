@@ -3,9 +3,9 @@ import { SlideUp } from "../animations/SlideUp";
 
 export function About() {
   return (
-    <section id="about" className="py-20 md:py-32 bg-background px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-12 md:py-20 bg-background px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left side - Image */}
           <FadeIn>
             <div className="relative">
@@ -37,7 +37,7 @@ export function About() {
                 relaxation, impeccable artistry, and the highest standards of hygiene.
               </p>
 
-              <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
+              <p className="text-lg text-foreground/70 mb-6 leading-relaxed">
                 Our team of certified nail technicians brings years of expertise and
                 international training to every service. We use premium, non-toxic
                 products and follow strict sanitization protocols to ensure your safety
