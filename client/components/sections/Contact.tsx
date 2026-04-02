@@ -54,8 +54,8 @@ export function Contact() {
                       Location
                     </h3>
                     <p className="text-foreground/60">
-                      123 Main Street<br />
-                      New York, NY 10001<br />
+                      350 Fifth Avenue, Suite 2500<br />
+                      New York, NY 10118<br />
                       United States
                     </p>
                   </div>
@@ -163,13 +163,18 @@ export function Contact() {
             </div>
           </SlideUp>
 
-          {/* Map Image */}
+          {/* Google Maps Embed */}
           <SlideUp>
             <div className="rounded-xl overflow-hidden h-96 border border-border shadow-lg">
-              <img
-                src="https://images.unsplash.com/photo-1524368535623-2bda13446a60?w=600&h=400&fit=crop"
-                alt="Luxury nail salon location map"
-                className="w-full h-full object-cover"
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890!2d-74.00601234567890!3d40.71234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a3e5e5e5e5d%3A0x1234567890abcdef!2s350%20Fifth%20Ave%2C%20New%20York%2C%20NY%2010118!5e0!3m2!1sen!2sus!4v1234567890123"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
               />
             </div>
           </SlideUp>
