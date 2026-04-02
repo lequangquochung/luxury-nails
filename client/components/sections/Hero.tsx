@@ -6,7 +6,7 @@ export function Hero() {
       backgroundImage: `url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&h=900&fit=crop')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundRepeat: 'no-repeat'
     }}>
       {/* Dark overlay for readability */}
       <div className="absolute inset-0 bg-black/50 -z-10" />
