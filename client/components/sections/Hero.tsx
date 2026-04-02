@@ -2,10 +2,14 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="min-h-[calc(100vh-64px)] flex items-center justify-center bg-gradient-to-br from-background via-background to-muted px-4 sm:px-6 lg:px-8 relative overflow-hidden border border-yellow-100">
-      {/* Background accent elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
+    <section className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden border border-yellow-100" style={{
+      backgroundImage: `url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&h=900&fit=crop')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed'
+    }}>
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/50 -z-10" />
 
       <div className="max-w-7xl mx-auto w-full text-center">
         <motion.div
@@ -13,7 +17,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
             Experience Luxury
             <br />
             Nail Care
@@ -24,7 +28,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-foreground/70 mb-8 max-w-2xl mx-auto font-light"
+          className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto font-light drop-shadow-md"
         >
           Premium artistry meets exceptional care. Discover the art of elegant nail design
           and indulge in a sanctuary of relaxation.
@@ -56,9 +60,9 @@ export function Hero() {
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center"
           >
-            <span className="text-sm text-foreground/50 mb-2">Scroll to explore</span>
+            <span className="text-sm text-white/70 mb-2">Scroll to explore</span>
             <svg
-              className="w-6 h-6 text-primary"
+              className="w-6 h-6 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
