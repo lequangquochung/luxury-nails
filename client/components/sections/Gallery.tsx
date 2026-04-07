@@ -35,17 +35,17 @@ export function Gallery() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {galleryItems.map((item, index) => (
             <FadeIn key={item.id} delay={index * 0.05}>
-              <ImageZoom className="h-64 md:h-72 rounded-xl cursor-pointer group">
+              <ImageZoom className="h-64 md:h-72 rounded-xl cursor-pointer group shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="w-full h-full relative overflow-hidden bg-muted">
                   {/* Image */}
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
 
                   {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <h3 className="font-serif font-semibold text-white text-lg mb-1">
                         {item.title}

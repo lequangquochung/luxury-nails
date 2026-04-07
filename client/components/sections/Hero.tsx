@@ -40,10 +40,10 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-3 justify-center"
         >
-          <button className="bg-primary text-primary-foreground px-10 py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg text-lg font-semibold">
+          <button className="bg-primary text-primary-foreground px-10 py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold">
             Book Your Appointment
           </button>
-          <button className="border-2 border-primary text-primary px-10 py-4 rounded-lg hover:bg-primary/5 transition-all duration-300 text-lg font-semibold">
+          <button className="border-2 border-primary text-primary px-10 py-4 rounded-lg hover:bg-primary/5 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold">
             View Our Services
           </button>
         </motion.div>

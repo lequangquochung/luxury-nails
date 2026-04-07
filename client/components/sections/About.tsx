@@ -45,8 +45,8 @@ export function About() {
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                  <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <div>
                     <h4 className="font-semibold text-primary mb-1">Expert Technicians</h4>
                     <p className="text-foreground/60">
@@ -54,8 +54,8 @@ export function About() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                  <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <div>
                     <h4 className="font-semibold text-primary mb-1">Premium Products</h4>
                     <p className="text-foreground/60">
@@ -63,8 +63,8 @@ export function About() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                  <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <div>
                     <h4 className="font-semibold text-primary mb-1">Hygiene First</h4>
                     <p className="text-foreground/60">

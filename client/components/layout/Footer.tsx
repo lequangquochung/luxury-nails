@@ -23,22 +23,22 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm opacity-90">
               <li>
-                <a href="#about" className="hover:opacity-100 transition-opacity">
+                <a href="#about" className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block">
                   About
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:opacity-100 transition-opacity">
+                <a href="#services" className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block">
                   Services
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="hover:opacity-100 transition-opacity">
+                <a href="#gallery" className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block">
                   Gallery
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:opacity-100 transition-opacity">
+                <a href="#contact" className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block">
                   Contact
                 </a>
               </li>
@@ -79,13 +79,13 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm opacity-90">
             <p>&copy; {currentYear} Luxe Nails. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:opacity-100 transition-opacity">
+              <a href="#" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
                 Instagram
               </a>
-              <a href="#" className="hover:opacity-100 transition-opacity">
+              <a href="#" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
                 Facebook
               </a>
-              <a href="#" className="hover:opacity-100 transition-opacity">
+              <a href="#" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
                 TikTok
               </a>
             </div>

@@ -30,12 +30,12 @@ export function Header() {
             <a
               key={item.label}
               href={item.href}
-              className="text-foreground/70 hover:text-primary transition-colors duration-200 text-sm font-medium"
+              className="text-foreground/70 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 origin-center"
             >
               {item.label}
             </a>
           ))}
-          <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium">
+          <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-sm font-medium">
             Book Now
           </button>
         </div>
