@@ -1,5 +1,6 @@
 import { SlideUp } from "../animations/SlideUp";
 import { FadeIn } from "../animations/FadeIn";
+import { ScaleIn } from "../animations/ScaleIn";
 import { ImageZoom } from "../animations/ImageZoom";
 
 export function Gallery() {
@@ -32,30 +33,33 @@ export function Gallery() {
           </SlideUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animation-stagger">
           {galleryItems.map((item, index) => (
-            <FadeIn key={item.id} delay={index * 0.05}>
-              <ImageZoom className="h-64 md:h-72 rounded-xl cursor-pointer group shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <ScaleIn key={item.id} delay={index * 0.12}>
+              <ImageZoom className="h-64 md:h-72 rounded-xl cursor-pointer group shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
                 <div className="w-full h-full relative overflow-hidden bg-muted">
                   {/* Image */}
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
                   />
 
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <h3 className="font-serif font-semibold text-white text-lg mb-1">
+                  {/* Overlay on hover - with slide-up effect */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/60 group-hover:from-black/20 group-hover:via-black/40 group-hover:to-black/70 transition-all duration-300 flex flex-col items-center justify-center">
+                    {/* Title and category - animate in on hover */}
+                    <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                      <h3 className="font-serif font-semibold text-white text-lg mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-white/80">{item.category}</p>
+                      <p className="text-sm text-white/90 tracking-wider uppercase">
+                        {item.category}
+                      </p>
                     </div>
                   </div>
                 </div>
               </ImageZoom>
-            </FadeIn>
+            </ScaleIn>
           ))}
         </div>
       </div>
