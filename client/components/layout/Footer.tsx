@@ -88,7 +88,7 @@ export function Footer() {
                   hello@luxenails.com
                 </a>
               </li>
-              <li>123 Main St, New York, NY</li>
+              <li>11702 Retail Dr, Wake Forest, NC 27587, United States</li>
             </ul>
           </div>
         </div>
