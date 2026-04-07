@@ -54,9 +54,7 @@ export function Contact() {
                       Location
                     </h3>
                     <p className="text-foreground/60">
-                      350 Fifth Avenue, Suite 2500<br />
-                      New York, NY 10118<br />
-                      United States
+                      11702 Retail Dr, Wake Forest, NC 27587, United States
                     </p>
                   </div>
                 </div>
@@ -87,8 +85,8 @@ export function Contact() {
                       Phone
                     </h3>
                     <p className="text-foreground/60">
-                      <a href="tel:+15551234567" className="hover:text-primary transition-colors">
-                        (555) 123-4567
+                      <a href="tel:+19195562000" className="hover:text-primary transition-colors">
+                        +1 (919) 556-2000
                       </a>
                     </p>
                   </div>
@@ -166,16 +164,13 @@ export function Contact() {
           {/* Google Maps Embed */}
           <SlideUp>
             <div className="rounded-xl overflow-hidden h-96 border border-border shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890!2d-74.00601234567890!3d40.71234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a3e5e5e5e5d%3A0x1234567890abcdef!2s350%20Fifth%20Ave%2C%20New%20York%2C%20NY%2010118!5e0!3m2!1sen!2sus!4v1234567890123"
-                width="100%"
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.2122696946617!2d-78.5440563!3d35.966235499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac516df6b51175%3A0x183d8ff2b6b44886!2sNAIL%20KITCHEN%20-%20WAKE%20FOREST!5e0!3m2!1sen!2s!4v1775574405779!5m2!1sen!2s" width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-              />
+                className="w-full h-full" />
             </div>
           </SlideUp>
         </div>

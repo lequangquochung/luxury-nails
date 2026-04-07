@@ -1,6 +1,22 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+function scrollToSection(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string, closeMenu?: () => void) {
+  const id = href.replace('#', '');
+  const el = document.getElementById(id);
+  if (el) {
+    e.preventDefault();
+    const rect = el.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const targetY = rect.top + scrollTop - 70; // Offset for sticky header
+    window.scrollTo({
+      top: targetY,
+      behavior: 'smooth',
+    });
+    if (closeMenu) closeMenu();
+  }
+}
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,24 +36,30 @@ export function Header() {
             <span className="text-white text-sm font-serif font-bold">LS</span>
           </div>
           <span className="text-xl font-serif font-semibold text-primary hidden sm:inline">
-            Luxe Nails
+            Slayenail
           </span>
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <a
+            <motion.a
               key={item.label}
               href={item.href}
+              whileTap={{ scale: 0.93, x: 8 }}
               className="text-foreground/70 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 origin-center"
+              onClick={e => scrollToSection(e, item.href)}
             >
               {item.label}
-            </a>
+            </motion.a>
           ))}
-          <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-sm font-medium">
+          <a
+            href="tel:1234567890"
+            className="bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-sm font-medium flex items-center justify-center"
+            style={{ textDecoration: 'none' }}
+          >
             Book Now
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -70,18 +92,24 @@ export function Header() {
           >
             <div className="max-w-7xl mx-auto px-4 py-4 space-y-4">
               {navItems.map((item) => (
-                <a
+                <motion.a
                   key={item.label}
                   href={item.href}
+                  whileTap={{ scale: 0.93, x: 8 }}
                   className="block text-foreground/70 hover:text-primary transition-colors duration-200 font-medium"
-                  onClick={() => setIsOpen(false)}
+                  onClick={e => scrollToSection(e, item.href, () => setIsOpen(false))}
                 >
                   {item.label}
-                </a>
+                </motion.a>
               ))}
-              <button className="w-full bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium">
+              <a
+                href="tel:1234567890"
+                className="w-full bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium flex items-center justify-center"
+                style={{ textDecoration: 'none' }}
+                onClick={() => setIsOpen(false)}
+              >
                 Book Now
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

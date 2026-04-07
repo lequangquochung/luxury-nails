@@ -7,7 +7,7 @@ export function Testimonials() {
       name: "Sarah Mitchell",
       role: "Regular Client",
       content:
-        "Luxe Nails has completely transformed how I experience nail care. The attention to detail and hygiene standards are unmatched. I've been a loyal client for three years!",
+        "Slayenail has completely transformed how I experience nail care. The attention to detail and hygiene standards are unmatched. I've been a loyal client for three years!",
       rating: 5,
     },
     {
@@ -21,7 +21,7 @@ export function Testimonials() {
       name: "Monica Rodriguez",
       role: "Business Professional",
       content:
-        "I visit Luxe Nails every two weeks for my gel manicures. The professionalism, clean environment, and artistic skill are why I keep coming back.",
+        "I visit Slayenail every two weeks for my gel manicures. The professionalism, clean environment, and artistic skill are why I keep coming back.",
       rating: 5,
     },
     {
@@ -46,7 +46,7 @@ export function Testimonials() {
             </h2>
             <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
               Don't just take our word for it. Hear from our satisfied clients about
-              their Luxe Nails experience.
+              their Slayenail experience.
             </p>
           </SlideUp>
         </div>

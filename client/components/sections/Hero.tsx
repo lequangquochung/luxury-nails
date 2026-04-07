@@ -18,9 +18,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-4 leading-tight drop-shadow-lg">
-            Experience Luxury
-            <br />
-            Nail Care
+            Slayenail
           </h1>
         </motion.div>
 
@@ -43,7 +41,7 @@ export function Hero() {
           <button className="bg-primary text-primary-foreground px-10 py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold">
             Book Your Appointment
           </button>
-          <button className="border-2 border-primary text-primary px-10 py-4 rounded-lg hover:bg-primary/5 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold">
+          <button className="border-2 border-primary text-primary px-10 py-4 bg-background rounded-lg hover:text-white hover:bg-primary/5 transition-all duration-300 hover:shadow-lg hover:border-white hover:-translate-y-0.5 active:scale-95 text-lg font-semibold">
             View Our Services
           </button>
         </motion.div>

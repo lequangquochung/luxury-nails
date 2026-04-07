@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -8,10 +10,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-primary text-lg font-serif font-bold">LS</span>
-              </div>
-              <span className="text-xl font-serif font-semibold">Luxe Nails</span>
+              <span className="text-xl font-serif font-semibold">Slayenail</span>
             </div>
             <p className="text-sm opacity-90">
               Premium nail care and artistry for the discerning client.
@@ -21,28 +20,48 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm opacity-90">
-              <li>
-                <a href="#about" className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block">
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block">
-                  Contact
-                </a>
-              </li>
-            </ul>
+              <ul className="space-y-2 text-sm opacity-90">
+                <li>
+                  <motion.a
+                    href="#about"
+                    whileTap={{ scale: 0.93, x: 8 }}
+                    className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
+                    onClick={e => scrollToSectionFooter(e, '#about')}
+                  >
+                    About
+                  </motion.a>
+                </li>
+                <li>
+                  <motion.a
+                    href="#services"
+                    whileTap={{ scale: 0.93, x: 8 }}
+                    className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
+                    onClick={e => scrollToSectionFooter(e, '#services')}
+                  >
+                    Services
+                  </motion.a>
+                </li>
+                <li>
+                  <motion.a
+                    href="#gallery"
+                    whileTap={{ scale: 0.93, x: 8 }}
+                    className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
+                    onClick={e => scrollToSectionFooter(e, '#gallery')}
+                  >
+                    Gallery
+                  </motion.a>
+                </li>
+                <li>
+                  <motion.a
+                    href="#contact"
+                    whileTap={{ scale: 0.93, x: 8 }}
+                    className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
+                    onClick={e => scrollToSectionFooter(e, '#contact')}
+                  >
+                    Contact
+                  </motion.a>
+                </li>
+              </ul>
           </div>
 
           {/* Hours */}
@@ -77,7 +96,7 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-primary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm opacity-90">
-            <p>&copy; {currentYear} Luxe Nails. All rights reserved.</p>
+            <p>&copy; {currentYear} Slayenail. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
                 Instagram
@@ -95,3 +114,17 @@ export function Footer() {
     </footer>
   );
 }
+  function scrollToSectionFooter(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) {
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const targetY = rect.top + scrollTop - 70;
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth',
+      });
+    }
+  }

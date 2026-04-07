@@ -16,7 +16,6 @@ export function About() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-2xl -z-10" />
             </div>
           </FadeIn>
 
@@ -32,16 +31,11 @@ export function About() {
               </h2>
 
               <p className="text-lg text-foreground/70 mb-6 leading-relaxed">
-                Founded in 2019, Luxe Nails was born from a vision to elevate the nail
-                care experience. We believe that every client deserves a sanctuary of
-                relaxation, impeccable artistry, and the highest standards of hygiene.
+                Welcome to Slayenail, where beauty meets artistry and every detail matters. Our journey began with a simple mission: to empower confidence and self-expression through exceptional nail care in a truly luxurious setting.
               </p>
 
               <p className="text-lg text-foreground/70 mb-6 leading-relaxed">
-                Our team of certified nail technicians brings years of expertise and
-                international training to every service. We use premium, non-toxic
-                products and follow strict sanitization protocols to ensure your safety
-                and satisfaction.
+                At Slayenail, we blend creativity with precision, offering a curated experience that goes beyond the ordinary. Our passionate team is dedicated to making every visit memorable—using only the finest products, the latest techniques, and a commitment to uncompromising hygiene. Discover your signature style and let your nails make a statement with us.
               </p>
 
               <div className="space-y-4">
