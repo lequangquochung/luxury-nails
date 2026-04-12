@@ -80,18 +80,18 @@ export function Gallery() {
         <Dialog open={open} onOpenChange={handleOpenChange}>
           <DialogOverlay />
           <DialogContent className="max-w-3xl w-full flex flex-col items-center bg-black/95 p-0 rounded-lg md:rounded-2xl shadow-2xl overflow-hidden min-h-[60vh] md:min-h-[60vh]">
-            <div className="flex justify-between items-center w-full px-2 py-2 gap-2 bg-black/70 md:bg-transparent z-20">
-              <div className="flex gap-2 md:gap-3">
-                {selectedImg && (
-                  <TransformWrapper
-                    initialScale={1}
-                    minScale={0.5}
-                    maxScale={5}
-                    wheel={{ step: 0.15 }}
-                    doubleClick={{ disabled: true }}
-                  >
-                    {({ zoomIn, zoomOut, resetTransform }) => (
-                      <>
+            {selectedImg && (
+              <TransformWrapper
+                initialScale={1}
+                minScale={0.5}
+                maxScale={5}
+                wheel={{ disabled: true }}
+                doubleClick={{ disabled: true }}
+              >
+                {({ zoomIn, zoomOut, resetTransform }) => (
+                  <>
+                    <div className="flex justify-between items-center w-full px-2 py-2 gap-2 bg-black/70 md:bg-transparent z-20">
+                      <div className="flex gap-2 md:gap-3">
                         <button
                           className="bg-white/10 text-white px-4 py-2 rounded-full hover:bg-white/20 text-lg md:text-base"
                           onClick={() => zoomIn()}
@@ -113,41 +113,29 @@ export function Gallery() {
                         >
                           Reset
                         </button>
-                      </>
-                    )}
-                  </TransformWrapper>
+                      </div>
+                      <DialogClose className="bg-white/10 text-white px-4 py-2 rounded-full hover:bg-white/20 text-lg md:text-base">×</DialogClose>
+                    </div>
+                    <div className="flex-1 flex items-center justify-center w-full h-[60vh] md:h-[60vh] select-none relative bg-black">
+                      <TransformComponent>
+                        <img
+                          src={selectedImg}
+                          alt="Zoomed"
+                          draggable={false}
+                          className="max-h-[55vh] md:max-h-[60vh] w-auto max-w-full mx-auto rounded-md shadow-lg border border-white/10"
+                          style={{
+                            userSelect: 'none',
+                            pointerEvents: 'auto',
+                            display: 'block',
+                            margin: '0 auto',
+                            background: '#222',
+                          }}
+                        />
+                      </TransformComponent>
+                    </div>
+                  </>
                 )}
-              </div>
-              <DialogClose className="bg-white/10 text-white px-4 py-2 rounded-full hover:bg-white/20 text-lg md:text-base">×</DialogClose>
-            </div>
-            {selectedImg && (
-              <div className="flex-1 flex items-center justify-center w-full h-[60vh] md:h-[60vh] select-none relative bg-black">
-                <TransformWrapper
-                  initialScale={1}
-                  minScale={0.5}
-                  maxScale={5}
-                  wheel={{ step: 0.15 }}
-                  doubleClick={{ disabled: true }}
-                >
-                  {({ zoomIn, zoomOut, resetTransform }) => (
-                    <TransformComponent>
-                      <img
-                        src={selectedImg}
-                        alt="Zoomed"
-                        draggable={false}
-                        className="max-h-[55vh] md:max-h-[60vh] w-auto max-w-full mx-auto rounded-md shadow-lg border border-white/10"
-                        style={{
-                          userSelect: 'none',
-                          pointerEvents: 'auto',
-                          display: 'block',
-                          margin: '0 auto',
-                          background: '#222',
-                        }}
-                      />
-                    </TransformComponent>
-                  )}
-                </TransformWrapper>
-              </div>
+              </TransformWrapper>
             )}
             <div className="text-white text-xs py-2 opacity-70 text-center w-full bg-black/60 md:bg-transparent px-2">
               Use two fingers or drag to move the image. Use the + - buttons or pinch/zoom to scale in and out.
