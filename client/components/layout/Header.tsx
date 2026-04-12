@@ -61,7 +61,7 @@ export function Header() {
           ))}
           <a
             className="bg-gold-dark text-background px-6 py-2 hover:bg-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-sm font-medium flex items-center justify-center rounded-md"
-            href="https://fozito.com/"
+            href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
             style={{ textDecoration: 'none' }}
             target="blank"
           >

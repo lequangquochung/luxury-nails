@@ -53,7 +53,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-3 justify-center"
         >
           <a
-            href="https://fozito.com/"
+            href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
             target="blank"
             style={{ textDecoration: 'none' }}
             className="w-full sm:w-[30%] bg-gold-dark text-primary-foreground px-10 py-4 rounded-lg hover:bg-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold"
