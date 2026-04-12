@@ -1,114 +1,116 @@
 /** @import must precede all other statements */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Bodoni+Moda:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+
   /**
    * Tailwind CSS theme
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    /* Luxury Nail Salon Theme - Navy Blue & Beige */
-    --background: 40 35% 97%;
-    --foreground: 210 50% 18%;
+    /* Luxury Nail Bar Theme - Black & Gold */
+    --background: 45 8% 8%;
+    --foreground: 45 85% 88%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 50% 18%;
+    --card: 0 0% 12%;
+    --card-foreground: 45 85% 88%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 50% 18%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 45 85% 88%;
+      --foreground: 45 95% 60%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 5%;
+      --card-foreground: 45 95% 60%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 45 85% 88%;
+      --popover-foreground: 45 95% 60%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 45 85% 70%;
+      --primary: 45 100% 45%;
+      --primary-foreground: 0 0% 5%;
+    --accent-foreground: 0 0% 5%;
 
-    --primary: 210 50% 20%;
-    --primary-foreground: 40 35% 97%;
-
-    --secondary: 210 40% 92%;
-    --secondary-foreground: 210 50% 20%;
-
-    --muted: 40 30% 90%;
-    --muted-foreground: 210 25% 40%;
-
-    --accent: 210 50% 20%;
-    --accent-foreground: 40 35% 97%;
-
-    --destructive: 0 84.2% 60.2%;
+      --secondary-foreground: 45 95% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 25% 88%;
-    --input: 40 35% 97%;
-    --ring: 210 50% 20%;
+      --muted-foreground: 45 95% 50%;
+    --input: 0 0% 15%;
+    --ring: 45 100% 50%;
+      --accent: 45 100% 45%;
+      --accent-foreground: 0 0% 5%;
 
-    --radius: 0.75rem;
+    --sidebar-background: 45 8% 8%;
 
-    --sidebar-background: 40 35% 97%;
+    --sidebar-foreground: 45 85% 88%;
 
-    --sidebar-foreground: 210 50% 18%;
+    --sidebar-primary: 45 100% 50%;
 
-    --sidebar-primary: 210 50% 20%;
+    --sidebar-primary-foreground: 0 0% 5%;
+      --sidebar-foreground: 45 95% 60%;
+    --sidebar-accent: 45 100% 50%;
 
-    --sidebar-primary-foreground: 40 35% 97%;
+      --sidebar-primary: 45 100% 45%;
+      --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-border: 0 0% 20%;
 
-    --sidebar-accent: 210 50% 20%;
-
-    --sidebar-accent-foreground: 40 35% 97%;
-
-    --sidebar-border: 210 25% 88%;
-
-    --sidebar-ring: 210 50% 20%;
-  }
+      --sidebar-accent: 45 100% 45%;
+      --sidebar-accent-foreground: 0 0% 5%;
 
   .dark {
-    --background: 210 50% 12%;
-    --foreground: 40 35% 92%;
+    --background: 45 8% 5%;
+    --foreground: 45 85% 90%;
 
-    --card: 210 50% 18%;
-    --card-foreground: 40 35% 92%;
+    --card: 0 0% 10%;
+    --card-foreground: 45 85% 90%;
 
-    --popover: 210 50% 18%;
-    --popover-foreground: 40 35% 92%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 45 85% 90%;
+      --foreground: 45 95% 65%;
+    --primary: 45 100% 55%;
+    --primary-foreground: 0 0% 3%;
+      --card-foreground: 45 95% 65%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 45 85% 90%;
+      --popover-foreground: 45 95% 65%;
+    --muted: 0 0% 23%;
+    --muted-foreground: 45 85% 75%;
+      --primary: 45 100% 40%;
+      --primary-foreground: 0 0% 3%;
+    --accent-foreground: 0 0% 3%;
 
-    --primary: 40 35% 92%;
-    --primary-foreground: 210 50% 20%;
-
-    --secondary: 210 45% 26%;
-    --secondary-foreground: 40 35% 92%;
-
-    --muted: 210 45% 32%;
-    --muted-foreground: 40 30% 80%;
-
-    --accent: 40 35% 92%;
-    --accent-foreground: 210 50% 20%;
-
-    --destructive: 0 84.2% 60.2%;
+      --secondary-foreground: 45 95% 65%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 45% 24%;
-    --input: 210 50% 20%;
-    --ring: 40 35% 92%;
-    --sidebar-background: 210 50% 14%;
-    --sidebar-foreground: 40 35% 92%;
-    --sidebar-primary: 40 35% 92%;
-    --sidebar-primary-foreground: 210 50% 20%;
-    --sidebar-accent: 40 35% 92%;
-    --sidebar-accent-foreground: 210 50% 20%;
-    --sidebar-border: 210 45% 24%;
-    --sidebar-ring: 40 35% 92%;
+      --muted-foreground: 45 95% 45%;
+    --input: 0 0% 13%;
+    --ring: 45 100% 55%;
+      --accent: 45 100% 40%;
+      --accent-foreground: 0 0% 3%;
+    --sidebar-primary: 45 100% 55%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 45 100% 55%;
+    --sidebar-accent-foreground: 0 0% 3%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 45 100% 55%;
   }
-}
+      --sidebar-foreground: 45 95% 65%;
 
 @layer base {
-  * {
-    @apply border-border;
+      --sidebar-primary: 45 100% 40%;
+      --sidebar-primary-foreground: 0 0% 3%;
   }
 
-  body {
-    @apply bg-background text-foreground;
+      --sidebar-accent: 45 100% 40%;
+      --sidebar-accent-foreground: 0 0% 3%;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    letter-spacing: -0.3px;
+      --sidebar-ring: 45 100% 40%;
   }
 
   h1 {
@@ -118,14 +120,17 @@
     letter-spacing: -0.5px;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     @apply font-serif;
     font-family: "Playfair Display", serif;
     font-weight: 600;
     letter-spacing: -0.3px;
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     font-weight: 600;
     letter-spacing: -0.2px;
   }
@@ -187,6 +192,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -197,6 +203,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -208,6 +215,7 @@
       opacity: 0;
       transform: scale(0.95);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
@@ -219,6 +227,7 @@
       opacity: 0;
       transform: translateX(-30px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
@@ -230,9 +239,25 @@
       opacity: 0;
       transform: translateX(30px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
     }
+  }
+}
+
+/* Luxury text styles */
+@layer utilities {
+  .font-logo-slaye {
+    font-family: 'Bodoni Moda', 'Didot', 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .font-logo-nailbar {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
 }

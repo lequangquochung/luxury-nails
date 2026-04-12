@@ -5,14 +5,14 @@ import { ImageZoom } from "../animations/ImageZoom";
 
 export function Gallery() {
   const galleryItems = [
-    { id: 1, title: "Classic Red", category: "Manicure", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
-    { id: 2, title: "Ombre Art", category: "Nail Art", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop&crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjcyNDAwMDAw" },
-    { id: 3, title: "Glitter Accent", category: "Design", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
-    { id: 4, title: "French Polish", category: "Classic", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
-    { id: 5, title: "Marble Effect", category: "Art", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
-    { id: 6, title: "Floral Design", category: "Art", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
-    { id: 7, title: "Gold Accent", category: "Luxury", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
-    { id: 8, title: "Minimalist", category: "Modern", image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop" },
+    { id: 1, title: "Classic Red", category: "Manicure", image: "/imgs/gallery-1.jpg" },
+    { id: 2, title: "Ombre Art", category: "Nail Art", image: "/imgs/gallery-2.jpg" },
+    { id: 3, title: "Glitter Accent", category: "Design", image: "/imgs/gallery-3.jpg" },
+    { id: 4, title: "French Polish", category: "Classic", image: "/imgs/gallery-4.jpg" },
+    { id: 5, title: "Marble Effect", category: "Art", image: "/imgs/gallery-5.jpg" },
+    { id: 6, title: "Floral Design", category: "Art", image: "/imgs/gallery-6.jpg" },
+    { id: 7, title: "Gold Accent", category: "Luxury", image: "/imgs/gallery-7.jpg" },
+    { id: 8, title: "Minimalist", category: "Modern", image: "/imgs/gallery-8.jpg" },
   ];
 
   return (
@@ -26,7 +26,7 @@ export function Gallery() {
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
               Our Latest Creations
             </h2>
-            <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+            <p className="text-lg text-gold-light max-w-2xl mx-auto">
               Explore our portfolio of stunning nail designs and artistry. Each piece is
               a testament to our commitment to beauty and precision.
             </p>
@@ -46,17 +46,16 @@ export function Gallery() {
                   />
 
                   {/* Overlay on hover - with slide-up effect */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/60 group-hover:from-black/20 group-hover:via-black/40 group-hover:to-black/70 transition-all duration-300 flex flex-col items-center justify-center">
-                    {/* Title and category - animate in on hover */}
+                  {/* <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/60 group-hover:from-black/20 group-hover:via-black/40 group-hover:to-black/70 transition-all duration-300 flex flex-col items-center justify-center">
                     <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                      <h3 className="font-serif font-semibold text-white text-lg mb-2">
+                      <h3 className="font-serif font-semibold text-gold-dark text-lg mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-white/90 tracking-wider uppercase">
+                      <p className="text-sm text-gold-dark tracking-wider uppercase">
                         {item.category}
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </ImageZoom>
             </ScaleIn>

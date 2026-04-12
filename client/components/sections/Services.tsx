@@ -36,7 +36,7 @@ export function Services() {
             <h2 className="text-4xl md: text-5xl font-serif font-bold text-primary mb-6">
               Our Premium Services
             </h2>
-            <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+            <p className="text-lg text-gold-light max-w-2xl mx-auto">
               From classic elegance to artistic masterpieces, we offer comprehensive nail
               care solutions tailored to your desires.
             </p>

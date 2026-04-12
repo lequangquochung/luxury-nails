@@ -13,7 +13,7 @@ export function Contact() {
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
               Get In Touch
             </h2>
-            <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+            <p className="text-lg text-gold-light max-w-2xl mx-auto">
               Ready to experience luxury nail care? Book your appointment or visit us today.
             </p>
           </SlideUp>
@@ -53,7 +53,7 @@ export function Contact() {
                     <h3 className="text-lg font-semibold text-primary mb-1">
                       Location
                     </h3>
-                    <p className="text-foreground/60">
+                    <p className="text-gold-light">
                       11702 Retail Dr, Wake Forest, NC 27587, United States
                     </p>
                   </div>
@@ -84,8 +84,8 @@ export function Contact() {
                     <h3 className="text-lg font-semibold text-primary mb-1">
                       Phone
                     </h3>
-                    <p className="text-foreground/60">
-                      <a href="tel:+19195562000" className="hover:text-primary transition-colors">
+                    <p className="text-gold-light">
+                      <a href="tel:+19195562000" className="hover:text-[hsl(var(--primary-hover))] transition-colors">
                         +1 (919) 556-2000
                       </a>
                     </p>
@@ -117,9 +117,9 @@ export function Contact() {
                     <h3 className="text-lg font-semibold text-primary mb-1">
                       Email
                     </h3>
-                    <p className="text-foreground/60">
-                      <a href="mailto:hello@luxenails.com" className="hover:text-primary transition-colors">
-                        hello@luxenails.com
+                    <p className="text-gold-light">
+                      <a href="mailto:Slayenailbar@gmail.com" className="hover:text-[hsl(var(--primary-hover))] transition-colors">
+                        Slayenailbar@gmail.com
                       </a>
                     </p>
                   </div>
@@ -150,7 +150,7 @@ export function Contact() {
                     <h3 className="text-lg font-semibold text-primary mb-2">
                       Hours
                     </h3>
-                    <div className="text-foreground/60 space-y-1 text-sm">
+                    <div className="text-gold-light space-y-1 text-sm">
                       <p>Mon - Fri: 10:00 AM - 7:00 PM</p>
                       <p>Saturday: 10:00 AM - 6:00 PM</p>
                       <p>Sunday: 12:00 PM - 5:00 PM</p>

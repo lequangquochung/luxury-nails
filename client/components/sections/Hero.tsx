@@ -1,8 +1,21 @@
 import { motion } from "framer-motion";
 
+function scrollToServices() {
+  const el = document.getElementById("services");
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const targetY = rect.top + scrollTop - 70; // Offset for sticky header
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth",
+    });
+  }
+}
+
 export function Hero() {
   return (
-    <section className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden border border-yellow-100" style={{
+    <section className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden" style={{
       backgroundImage: `url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&h=900&fit=crop')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -17,8 +30,9 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-4 leading-tight drop-shadow-lg">
-            Slayenail
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+            <span className="font-logo-slaye">SLAYE </span>
+            <span className="font-logo-nailbar">NAIL BAR</span>
           </h1>
         </motion.div>
 
@@ -38,10 +52,18 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-3 justify-center"
         >
-          <button className="bg-primary text-primary-foreground px-10 py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold">
+          <a
+            href="https://fozito.com/"
+            target="blank"
+            style={{ textDecoration: 'none' }}
+            className="w-full sm:w-[30%] bg-gold-dark text-primary-foreground px-10 py-4 rounded-lg hover:bg-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold"
+          >
             Book Your Appointment
-          </button>
-          <button className="border-2 border-primary text-primary px-10 py-4 bg-background rounded-lg hover:text-white hover:bg-primary/5 transition-all duration-300 hover:shadow-lg hover:border-white hover:-translate-y-0.5 active:scale-95 text-lg font-semibold">
+          </a>
+          <button
+            className="w-full sm:w-[30%] border-2 border-gold-dark text-gold-dark px-10 py-4 bg-background rounded-lg hover:text-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold"
+            onClick={scrollToServices}
+          >
             View Our Services
           </button>
         </motion.div>
