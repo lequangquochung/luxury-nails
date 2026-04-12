@@ -102,12 +102,10 @@
       --sidebar-foreground: 45 95% 65%;
 
 @layer base {
-      --sidebar-primary: 45 100% 40%;
-      --sidebar-primary-foreground: 0 0% 3%;
+  /* removed invalid loose custom property declarations */
   }
 
-      --sidebar-accent: 45 100% 40%;
-      --sidebar-accent-foreground: 0 0% 3%;
+  /* removed invalid loose custom property declarations */
     font-family: "Inter", sans-serif;
     font-weight: 400;
       --sidebar-ring: 45 100% 40%;
