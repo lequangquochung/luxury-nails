@@ -40,11 +40,11 @@ export function FacilityGallery() {
                     >
                         {FACILITY_IMAGES.map((src, idx) => (
                             <SwiperSlide key={src}>
-                                <div className="flex items-center justify-center min-h-[320px] md:min-h-[420px] rounded-2xl">
+                                <div className="flex items-center rounded-xl justify-center min-h-[320px] md:min-h-[420px]">
                                     <img
                                         src={src}
                                         alt={`Facility ${idx + 1}`}
-                                        className="max-h-[4300px] w-full max-w-full rounded-xl object-contain mx-auto"
+                                        className="max-h-[450px] w-auto max-w-full rounded-xl object-contain mx-auto"
                                     />
                                 </div>
                             </SwiperSlide>
