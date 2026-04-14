@@ -44,7 +44,7 @@ export function FacilityGallery() {
                                     <img
                                         src={src}
                                         alt={`Facility ${idx + 1}`}
-                                        className="max-h-[400px] w-auto max-w-full rounded-xl object-contain mx-auto"
+                                        className="max-h-[4300px] w-full max-w-full rounded-xl object-contain mx-auto"
                                     />
                                 </div>
                             </SwiperSlide>
@@ -57,6 +57,12 @@ export function FacilityGallery() {
                                 height: 44px;
                                 top: 50%;
                                 transform: translateY(-50%);
+                            }
+                            .swiper-button-prev {
+                                left: 0;
+                            }
+                            .swiper-button-next {
+                                right: 0;
                             }
                             .swiper-button-next:after, .swiper-button-prev:after {
                                 font-size: 1.25rem;
