@@ -68,9 +68,8 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Hours</h4>
             <ul className="space-y-2 text-sm opacity-90">
-              <li>Mon - Fri: 10am - 7pm</li>
-              <li>Saturday: 10am - 6pm</li>
-              <li>Sunday: 12pm - 5pm</li>
+              <li>Mon - Sat: 9:30 AM - 7:00 PM</li>
+              <li>Sunday: 10:30 AM - 5:00 PM</li>
             </ul>
           </div>
 
@@ -98,14 +97,11 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm opacity-90">
             <p>&copy; {currentYear} SLAYE NAIL BAR. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
+              <a href="https://www.instagram.com/slayenailbar" target="blank" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
                 Instagram
               </a>
-              <a href="#" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
+              <a href="https://www.facebook.com/Slayenailbar" target="blank" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
                 Facebook
-              </a>
-              <a href="#" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
-                TikTok
               </a>
             </div>
           </div>
