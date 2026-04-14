@@ -26,7 +26,6 @@ export function Gallery() {
     { id: 8, title: "Minimalist", category: "Modern", image: "/imgs/gallery-8.jpg" },
   ];
 
-  // Reset khi đóng
   const handleOpenChange = (v: boolean) => {
     setOpen(v);
     if (!v) {

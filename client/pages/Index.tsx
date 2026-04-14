@@ -3,6 +3,7 @@ import { About } from "../components/sections/About";
 import { Services } from "../components/sections/Services";
 import { Gallery } from "../components/sections/Gallery";
 import { Contact } from "../components/sections/Contact";
+import { FacilityGallery } from "../components/sections/FacilityGallery";
 
 export default function Index() {
   return (
@@ -11,6 +12,7 @@ export default function Index() {
       <About />
       <Services />
       <Gallery />
+      <FacilityGallery />
       <Contact />
     </div>
   );

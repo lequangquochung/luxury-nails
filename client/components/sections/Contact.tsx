@@ -151,9 +151,8 @@ export function Contact() {
                       Hours
                     </h3>
                     <div className="text-gold-light space-y-1 text-sm">
-                      <p>Mon - Fri: 10:00 AM - 7:00 PM</p>
-                      <p>Saturday: 10:00 AM - 6:00 PM</p>
-                      <p>Sunday: 12:00 PM - 5:00 PM</p>
+                      <p>Mon - Sat: 9:30 AM - 7:00 PM</p>
+                      <p>Sunday: 10:30 AM - 5:00 PM</p>
                     </div>
                   </div>
                 </div>
