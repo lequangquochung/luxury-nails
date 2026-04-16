@@ -21,9 +21,11 @@ export function About() {
 
           {/* Right side - Text content */}
           <SlideUp>
-            <div>
-              <div className="inline-block px-4 py-2 bg-accent/10 rounded-full mb-4">
-                <span className="text-accent font-medium text-sm">Our Story</span>
+            <div className="text-center md:text-left">
+              <div className="mb-4 flex justify-center md:block">
+                <div className="inline-block px-4 py-2 bg-accent/10 rounded-full">
+                  <span className="text-accent font-medium text-sm">Our Story</span>
+                </div>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
@@ -39,7 +41,7 @@ export function About() {
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                <div className="flex items-start justify-center gap-4 text-left transition-all duration-300 hover:translate-x-2 cursor-pointer md:justify-start">
                   <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <div>
                     <h4 className="font-semibold text-primary mb-1">Expert Technicians</h4>
@@ -48,7 +50,7 @@ export function About() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                <div className="flex items-start justify-center gap-4 text-left transition-all duration-300 hover:translate-x-2 cursor-pointer md:justify-start">
                   <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <div>
                     <h4 className="font-semibold text-primary mb-1">Premium Products</h4>
@@ -57,7 +59,7 @@ export function About() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                <div className="flex items-start justify-center gap-4 text-left transition-all duration-300 hover:translate-x-2 cursor-pointer md:justify-start">
                   <div className="w-6 h-6 bg-accent rounded-full flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <div>
                     <h4 className="font-semibold text-primary mb-1">Hygiene First</h4>

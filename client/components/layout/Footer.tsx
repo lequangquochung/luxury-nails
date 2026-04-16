@@ -34,7 +34,8 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <span className="text-xl font-serif font-semibold dark drop-shadow">SLAYE NAIL BAR</span>
+              <span className="text-2xl font-logo-slaye text-gold-dark drop-shadow">SLAYE</span>
+              <span className="text-base font-logo-nailbar tracking-[0.28em] text-gold-dark drop-shadow">NAIL BAR</span>
             </div>
             <p className="text-sm opacity-90">
               Premium nail care and artistry for the discerning client.

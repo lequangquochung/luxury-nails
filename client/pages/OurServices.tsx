@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   Check,
+  ChevronDown,
   Clock3,
   GlassWater,
   HandHelping,
@@ -257,15 +259,39 @@ const policyNotes = [
   "Your satisfaction is our priority, and we sincerely appreciate your trust and continued support.",
 ];
 
-function PackageCard({ item, featured = false }: { item: PackageItem; featured?: boolean }) {
+function PackageCard({
+  item,
+  featured = false,
+  expandable = false,
+}: {
+  item: PackageItem;
+  featured?: boolean;
+  expandable?: boolean;
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const showDetails = !expandable || isExpanded;
+  const toggleExpanded = () => setIsExpanded((current) => !current);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.45 }}
+      onClick={expandable ? toggleExpanded : undefined}
+      onKeyDown={expandable ? (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleExpanded();
+        }
+      } : undefined}
+      role={expandable ? "button" : undefined}
+      tabIndex={expandable ? 0 : undefined}
+      aria-expanded={expandable ? isExpanded : undefined}
       className={[
         "rounded-[1.75rem] border p-6 sm:p-7",
+        expandable ? "cursor-pointer" : "",
         featured
           ? "border-primary/35 bg-background shadow-[0_22px_60px_rgba(212,175,55,0.12)]"
           : "border-border/80 bg-card/70",
@@ -273,19 +299,40 @@ function PackageCard({ item, featured = false }: { item: PackageItem; featured?:
     >
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
         <div className="min-w-0 flex-1">
-          <h3 className="text-[clamp(1.75rem,7vw,2.4rem)] whitespace-nowrap text-foreground sm:text-3xl sm:whitespace-normal">
-            {item.name}
-          </h3>
-          {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
+          {expandable ? (
+            <div className="min-w-0 flex-1">
+              <h3 className="text-[clamp(1.75rem,7vw,2.4rem)] whitespace-nowrap text-foreground sm:text-3xl sm:whitespace-normal">
+                {item.name}
+              </h3>
+              {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
+              <div className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-primary/80">
+                <ChevronDown className={[
+                  "h-3.5 w-3.5 transition-transform duration-300",
+                  isExpanded ? "rotate-180" : "rotate-0",
+                ].join(" ")} />
+                {isExpanded ? "Hide service steps" : "View service steps"}
+              </div>
+            </div>
+          ) : (
+            <>
+              <h3 className="text-[clamp(1.75rem,7vw,2.4rem)] whitespace-nowrap text-foreground sm:text-3xl sm:whitespace-normal">
+                {item.name}
+              </h3>
+              {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
+            </>
+          )}
         </div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:ml-6 lg:flex lg:flex-nowrap lg:justify-end">
+        <div className={[
+          "grid gap-3 lg:ml-6 lg:flex lg:flex-nowrap lg:justify-end",
+          expandable ? "sm:grid-cols-1" : "sm:grid-cols-2",
+        ].join(" ")}>
           <div className="w-full rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
             <div className="flex items-center justify-between gap-3 lg:block">
               <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">Regular</div>
               <div className="text-2xl font-semibold text-primary lg:mt-2">{item.regular ?? "Ask"}</div>
             </div>
           </div>
-          {item.gel ? (
+          {item.gel && !expandable ? (
             <div className="w-full rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
               <div className="flex items-center justify-between gap-3 lg:block">
                 <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">Gel</div>
@@ -296,23 +343,46 @@ function PackageCard({ item, featured = false }: { item: PackageItem; featured?:
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3 md:grid-cols-2">
-        {item.includes.map((entry) => (
-          <div key={entry} className="flex items-start gap-3 rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm text-foreground/80">
-            <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/12 text-primary">
-              <Check className="h-3 w-3" />
-            </span>
-            <span>{entry}</span>
-          </div>
-        ))}
-      </div>
+      <AnimatePresence initial={false}>
+        {showDetails ? (
+          <motion.div
+            key="details"
+            initial={expandable ? { height: 0, opacity: 0, y: -8 } : false}
+            animate={{ height: "auto", opacity: 1, y: 0 }}
+            exit={{ height: 0, opacity: 0, y: -8 }}
+            transition={{ duration: 0.28, ease: "easeOut" }}
+            className="overflow-hidden"
+          >
+            <div className="mt-6 grid gap-3 md:grid-cols-2">
+              {item.includes.map((entry) => (
+                <div key={entry} className="flex items-start gap-3 rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm text-foreground/80">
+                  <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/12 text-primary">
+                    <Check className="h-3 w-3" />
+                  </span>
+                  <span>{entry}</span>
+                </div>
+              ))}
+            </div>
 
-      {item.massage ? (
-        <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-          <Clock3 className="h-4 w-4" />
-          {item.massage}
-        </div>
-      ) : null}
+            {item.massage || item.gel ? (
+              <div className="mt-6 flex flex-nowrap gap-3">
+                {item.massage ? (
+                  <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 p-3 text-xs font-medium uppercase text-primary">
+                    <Clock3 className="h-4 w-4" />
+                    {item.massage}
+                  </div>
+                ) : null}
+                {item.gel ? (
+                  <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/70 p-3 text-xs font-medium uppercase text-primary">
+                    <Sparkles className="h-4 w-4" />
+                    Gel +$20
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </motion.article>
   );
 }
@@ -440,18 +510,14 @@ export default function OurServices() {
       <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <div className="text-xs uppercase tracking-[0.28em] text-primary/80">Pedicure Packages</div>
-              <h2 className="mt-3 text-3xl text-foreground sm:text-5xl">Tiered foot care from essential maintenance to full luxury ritual.</h2>
-            </div>
-            <div className="max-w-md text-sm leading-6 text-foreground/68">
-              Each package lists regular and gel pricing separately, along with what is included and the massage duration when applicable.
+            <div className="w-full">
+              <p className="text-xl text-center font-bold uppercase tracking-[0.28em] text-primary">Pedicure Packages</p>
             </div>
           </div>
 
           <div className="mt-10 grid gap-6">
             {pedicurePackages.map((item, index) => (
-              <PackageCard key={item.name} item={item} featured={index === 0} />
+              <PackageCard key={item.name} item={item} featured={index === 0} expandable />
             ))}
           </div>
         </div>
@@ -459,29 +525,20 @@ export default function OurServices() {
 
       <section className="border-y border-border/70 bg-muted/40 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-8">
-            <div className="flex h-full flex-col justify-between rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-8">
-              <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/25 px-4 py-2 text-xs uppercase tracking-[0.28em] text-primary/85">
-                <HandHelping className="h-4 w-4" />
-                Manicure Packages
-              </div>
-              <div className="mt-6">
-                <h2 className="max-w-[12ch] text-3xl text-foreground sm:text-5xl">
-                  Manicure options kept compact, polished, and easy to compare.
-                </h2>
-                <p className="mt-5 max-w-lg text-base leading-7 text-foreground/70">
-                  Signature manicure remains the elevated option, while gel and regular manicure services stay simple for quick booking decisions.
-                </p>
-              </div>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="w-full">
+              <div className="text-xl text-center font-bold uppercase tracking-[0.28em] text-primary">Manicure Packages</div>
             </div>
+          </div>
 
-            <div className="flex h-full flex-col justify-center rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-8">
+          <div className="mt-10 grid grid-cols-1 w-50">
+            <div className="flex h-full flex-col justify-center rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-8 lg:order-2">
               <div className="space-y-4">
                 {experiencePromises.map((item, index) => (
                   <div
                     key={item}
                     className={[
-                      "flex items-start gap-4 py-2 text-sm leading-6 text-foreground/80",
+                      "flex items-center gap-4 py-2 text-sm leading-6 text-foreground/80",
                       index < experiencePromises.length - 1 ? "border-b border-border/60 pb-4" : "",
                     ].join(" ")}
                   >
@@ -497,11 +554,11 @@ export default function OurServices() {
 
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             {manicurePackages.map((item, index) => (
-              <PackageCard key={item.name} item={item} featured={index === 0} />
+              <PackageCard key={item.name} item={item} featured={index === 0} expandable />
             ))}
 
             <div className="rounded-[1.75rem] border border-primary/20 bg-background p-6">
-              <div className="text-xs uppercase tracking-[0.26em] text-primary/80">Polish Change</div>
+              <div className="text-xl uppercase text-center tracking-[0.26em] text-primary font-bold">Polish Change</div>
               <div className="mt-5 grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
                 {polishChanges.map((item) => (
                   <div key={item.name} className="rounded-2xl border border-border/70 bg-background/60 p-4 text-sm">
@@ -518,13 +575,9 @@ export default function OurServices() {
 
       <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <div className="text-xs uppercase tracking-[0.28em] text-primary/80">Nail Enhancement</div>
-              <h2 className="mt-3 text-3xl text-foreground sm:text-5xl">Enhancement services grouped by system, not buried in a long list.</h2>
-            </div>
-            <div className="max-w-md text-sm leading-6 text-foreground/68">
-              Pricing remains marked with plus signs where final cost can vary based on length, shape, removal, or design complexity.
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between justify-center">
+            <div className="w-full">
+              <p className="text-xl text-center font-bold uppercase tracking-[0.28em] text-primary">Nail Enhancement</p>
             </div>
           </div>
 
@@ -546,7 +599,7 @@ export default function OurServices() {
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="rounded-[1.75rem] border border-border/80 bg-card/70 p-6 sm:p-7">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-primary/85">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-rose-500">
                 <Scissors className="h-4 w-4" />
                 Waxing Note
               </div>
@@ -575,9 +628,8 @@ export default function OurServices() {
 
       <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-primary/20 bg-background p-6 sm:p-8 lg:p-10">
-          <div className="max-w-3xl">
-            <div className="text-xs uppercase tracking-[0.28em] text-primary/80">Policies & Notes</div>
-            <h2 className="mt-4 text-3xl text-foreground sm:text-5xl">Important information to review before booking.</h2>
+          <div className="mx-auto text-center">
+            <div className="text-xl uppercase tracking-[0.28em] text-primary">Policies & Notes</div>
           </div>
 
           <div className="mt-8 grid gap-4">
@@ -590,12 +642,12 @@ export default function OurServices() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="rounded-[2rem] border border-primary/20 bg-background p-8 sm:p-10">
             <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
               <div>
-                <div className="text-xs uppercase tracking-[0.3em] text-primary/80">Plan Your Visit</div>
+                <div className="text-lg uppercase tracking-[0.3em] text-primary">Plan Your Visit</div>
                 <h2 className="mt-4 text-3xl text-foreground sm:text-5xl">Choose your package, then personalize with shape, color, finish, or extras in salon.</h2>
               </div>
               <div className="space-y-4 text-sm text-foreground/75">
