@@ -86,7 +86,7 @@ export function Contact() {
                     </h3>
                     <p className="text-gold-light">
                       <a href="tel:+19195562000" className="hover:text-[hsl(var(--primary-hover))] transition-colors">
-                        +1 (919) 556-2000
+                        (919) 556 2000
                       </a>
                     </p>
                   </div>
@@ -118,8 +118,8 @@ export function Contact() {
                       Email
                     </h3>
                     <p className="text-gold-light">
-                      <a href="mailto:Slayenailbar@gmail.com" className="hover:text-[hsl(var(--primary-hover))] transition-colors">
-                        Slayenailbar@gmail.com
+                      <a href="mailto:slayenailbar@gmail.com" className="hover:text-[hsl(var(--primary-hover))] transition-colors">
+                        slayenailbar@gmail.com
                       </a>
                     </p>
                   </div>

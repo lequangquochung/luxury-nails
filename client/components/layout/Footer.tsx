@@ -1,10 +1,34 @@
 import { motion } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const navigateToSection = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    href: string,
+  ) => {
+    if (location.pathname === "/") {
+      scrollToSectionFooter(e, href);
+      return;
+    }
+
+    e.preventDefault();
+    navigate(`/${href}`);
+  };
+
+  const navigateToRoute = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    navigate(href);
+  };
 
   return (
-    <footer className="bg-background text-gold-dark mt-0 border-t border-gold bg-muted">
+    <footer className="bg-muted text-gold-dark mt-0 border-t border-gold">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
@@ -23,10 +47,20 @@ export function Footer() {
             <ul className="space-y-2 text-sm opacity-90">
               <li>
                 <motion.a
+                  href="/our-services"
+                  whileTap={{ scale: 0.93, x: 8 }}
+                  className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
+                  onClick={e => navigateToRoute(e, '/our-services')}
+                >
+                  Full Menu
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
                   href="#about"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => scrollToSectionFooter(e, '#about')}
+                  onClick={e => navigateToSection(e, '#about')}
                 >
                   About
                 </motion.a>
@@ -36,9 +70,9 @@ export function Footer() {
                   href="#services"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => scrollToSectionFooter(e, '#services')}
+                  onClick={e => navigateToSection(e, '#services')}
                 >
-                  Services
+                  Signature Services
                 </motion.a>
               </li>
               <li>
@@ -46,7 +80,7 @@ export function Footer() {
                   href="#gallery"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => scrollToSectionFooter(e, '#gallery')}
+                  onClick={e => navigateToSection(e, '#gallery')}
                 >
                   Gallery
                 </motion.a>
@@ -56,7 +90,7 @@ export function Footer() {
                   href="#contact"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => scrollToSectionFooter(e, '#contact')}
+                  onClick={e => navigateToSection(e, '#contact')}
                 >
                   Contact
                 </motion.a>
@@ -78,13 +112,13 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm opacity-90">
               <li>
-                <a href="tel:+15551234567" className="hover:opacity-100 transition-opacity">
-                  (555) 123-4567
+                <a href="tel:+19195562000" className="hover:opacity-100 transition-opacity">
+                  (919) 556 2000
                 </a>
               </li>
               <li>
-                <a href="mailto:Slayenailbar@gmail.com" className="hover:opacity-100 transition-opacity">
-                  Slayenailbar@gmail.com
+                <a href="mailto:slayenailbar@gmail.com" className="hover:opacity-100 transition-opacity">
+                  slayenailbar@gmail.com
                 </a>
               </li>
               <li>11702 Retail Dr, Wake Forest, NC 27587, United States</li>

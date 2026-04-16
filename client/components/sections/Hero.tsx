@@ -64,7 +64,7 @@ export function Hero() {
             className="w-full sm:w-[30%] border-2 border-gold-dark text-gold-dark px-10 py-4 bg-background rounded-lg hover:text-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold"
             onClick={scrollToServices}
           >
-            View Our Services
+            View Signature Services
           </button>
         </motion.div>
 

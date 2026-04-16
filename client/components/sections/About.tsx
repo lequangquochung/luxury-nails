@@ -11,7 +11,7 @@ export function About() {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=600&fit=crop"
+                  src="/imgs/gallery-1.jpg"
                   alt="Luxury nail salon interior"
                   className="w-full h-full object-cover"
                 />
