@@ -323,7 +323,7 @@ function PackageCard({
           )}
         </div>
         <div className={[
-          "grid gap-3 sm:grid-cols-2 lg:ml-6 lg:max-w-[280px] lg:flex-1 lg:justify-end",
+          "grid gap-3 sm:grid-cols-1 lg:ml-6 lg:flex-1 lg:justify-end",
           expandable ? "sm:grid-cols-1 lg:max-w-[160px]" : "",
         ].join(" ")}>
           <div className="w-full min-w-0 rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
