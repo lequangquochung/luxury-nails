@@ -7,14 +7,14 @@ export function Services() {
     {
       name: "Luxury Slaye Pedicure",
       category: "Pedicure Packages",
-      price: "Regular $90 | Gel $110",
+      price: "Regular $90",
       description: "Our most complete pedicure ritual with restorative care, massage, and finishing treatments.",
       features: ["6-step package", "Callus treatment", "Collagen or paraffin", "20 min massage"],
     },
     {
       name: "Signature Manicure",
       category: "Manicure Packages",
-      price: "Regular $47 | Gel $60",
+      price: "Regular $47",
       description: "A polished manicure option with exfoliation, moisture, and a refined finish.",
       features: ["Sugar scrub", "Hot towel", "Paraffin or collagen gloves", "5 min massage"],
     },
