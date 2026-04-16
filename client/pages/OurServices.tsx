@@ -290,7 +290,7 @@ function PackageCard({
       tabIndex={expandable ? 0 : undefined}
       aria-expanded={expandable ? isExpanded : undefined}
       className={[
-        "rounded-[1.75rem] border p-6 sm:p-7",
+        "rounded-[1.75rem] border p-5 sm:p-7",
         expandable ? "cursor-pointer" : "",
         featured
           ? "border-primary/35 bg-background shadow-[0_22px_60px_rgba(212,175,55,0.12)]"
@@ -301,7 +301,7 @@ function PackageCard({
         <div className="min-w-0 flex-1">
           {expandable ? (
             <div className="min-w-0 flex-1">
-              <h3 className="text-[clamp(1.75rem,7vw,2.4rem)] whitespace-nowrap text-foreground sm:text-3xl sm:whitespace-normal">
+              <h3 className="text-[clamp(1.5rem,6vw,2.4rem)] leading-[1.1] text-foreground">
                 {item.name}
               </h3>
               {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
@@ -315,7 +315,7 @@ function PackageCard({
             </div>
           ) : (
             <>
-              <h3 className="text-[clamp(1.75rem,7vw,2.4rem)] whitespace-nowrap text-foreground sm:text-3xl sm:whitespace-normal">
+              <h3 className="text-[clamp(1.5rem,6vw,2.4rem)] leading-[1.1] text-foreground">
                 {item.name}
               </h3>
               {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
@@ -323,17 +323,17 @@ function PackageCard({
           )}
         </div>
         <div className={[
-          "grid gap-3 lg:ml-6 lg:flex lg:flex-nowrap lg:justify-end",
-          expandable ? "sm:grid-cols-1" : "sm:grid-cols-2",
+          "grid gap-3 sm:grid-cols-2 lg:ml-6 lg:max-w-[280px] lg:flex-1 lg:justify-end",
+          expandable ? "sm:grid-cols-1 lg:max-w-[160px]" : "",
         ].join(" ")}>
-          <div className="w-full rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
+          <div className="w-full min-w-0 rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
             <div className="flex items-center justify-between gap-3 lg:block">
               <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">Regular</div>
               <div className="text-2xl font-semibold text-primary lg:mt-2">{item.regular ?? "Ask"}</div>
             </div>
           </div>
           {item.gel && !expandable ? (
-            <div className="w-full rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
+            <div className="w-full min-w-0 rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
               <div className="flex items-center justify-between gap-3 lg:block">
                 <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">Gel</div>
                 <div className="text-2xl font-semibold text-primary lg:mt-2">{item.gel}</div>
@@ -365,7 +365,7 @@ function PackageCard({
             </div>
 
             {item.massage || item.gel ? (
-              <div className="mt-6 flex flex-nowrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 {item.massage ? (
                   <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 p-3 text-xs font-medium uppercase text-primary">
                     <Clock3 className="h-4 w-4" />
@@ -400,9 +400,9 @@ function PriceListCard({ title, items }: { title: string; items: SimpleService[]
       <div className="mt-6 space-y-4">
         {items.map((item) => (
           <div key={`${title}-${item.name}`} className="rounded-2xl border border-border/70 bg-background/55 p-4">
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
               <div className="text-sm font-medium text-foreground">{item.name}</div>
-              <div className="text-sm font-semibold text-primary">{item.price}</div>
+              <div className="text-sm font-semibold text-primary sm:shrink-0">{item.price}</div>
             </div>
             {item.details?.length ? (
               <div className="mt-2 space-y-1 text-sm text-foreground/65">
@@ -432,7 +432,7 @@ export default function OurServices() {
               Service Menu
             </div>
 
-            <h1 className="mt-6 max-w-xl text-3xl leading-none text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 max-w-xl text-3xl leading-[0.95] text-foreground sm:text-5xl lg:text-7xl">
               The full menu, organized for real booking decisions.
             </h1>
 
@@ -441,19 +441,19 @@ export default function OurServices() {
               and in-studio extras designed to make booking simple.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <a
                 href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(212,175,55,0.2)]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(212,175,55,0.2)] sm:w-auto"
               >
                 Book Appointment
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center rounded-md border border-primary/35 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:bg-primary/10"
+                className="inline-flex w-full items-center justify-center rounded-md border border-primary/35 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:bg-primary/10 sm:w-auto"
               >
                 Visit the salon
               </a>
@@ -479,7 +479,7 @@ export default function OurServices() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative flex min-h-[440px] items-end overflow-hidden rounded-[2rem] border border-primary/20 bg-card shadow-[0_30px_80px_rgba(0,0,0,0.35)]"
+            className="relative flex min-h-[360px] items-end overflow-hidden rounded-[2rem] border border-primary/20 bg-card shadow-[0_30px_80px_rgba(0,0,0,0.35)] sm:min-h-[440px]"
           >
             <img
               src="/imgs/gallery-6.jpg"
@@ -531,7 +531,7 @@ export default function OurServices() {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 w-50">
+          <div className="mt-10 grid gap-4">
             <div className="flex h-full flex-col justify-center rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-8 lg:order-2">
               <div className="space-y-4">
                 {experiencePromises.map((item, index) => (
@@ -651,11 +651,11 @@ export default function OurServices() {
                 <h2 className="mt-4 text-3xl text-foreground sm:text-5xl">Choose your package, then personalize with shape, color, finish, or extras in salon.</h2>
               </div>
               <div className="space-y-4 text-sm text-foreground/75">
-                <div className="flex items-center gap-3">
+                <div className="flex items-start gap-3">
                   <Clock3 className="h-4 w-4 text-primary" />
                   Mon - Sat: 9:30 AM - 7:00 PM, Sun: 10:30 AM - 5:00 PM
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-start gap-3">
                   <MapPin className="h-4 w-4 text-primary" />
                   11702 Retail Dr, Wake Forest, NC 27587, United States
                 </div>
@@ -667,7 +667,7 @@ export default function OurServices() {
             href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex min-h-14 items-center justify-center rounded-full border border-primary bg-primary px-8 text-sm font-semibold uppercase tracking-[0.22em] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(212,175,55,0.22)]"
+            className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-primary bg-primary px-8 text-sm font-semibold uppercase tracking-[0.22em] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(212,175,55,0.22)] lg:w-auto"
           >
             Reserve Now
           </a>

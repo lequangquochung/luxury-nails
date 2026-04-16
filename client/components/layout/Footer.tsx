@@ -30,10 +30,10 @@ export function Footer() {
   return (
     <footer className="bg-muted text-gold-dark mt-0 border-t border-gold">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="mb-8 grid grid-cols-1 gap-8 text-center sm:text-left md:grid-cols-2 xl:grid-cols-4">
           {/* Brand */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="mb-4 flex items-center justify-center space-x-2 sm:justify-start">
               <span className="text-2xl font-logo-slaye text-gold-dark drop-shadow">SLAYE</span>
               <span className="text-base font-logo-nailbar tracking-[0.28em] text-gold-dark drop-shadow">NAIL BAR</span>
             </div>
@@ -129,13 +129,13 @@ export function Footer() {
 
         {/* Divider */}
         <div className="border-t border-primary-foreground/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm opacity-90">
+          <div className="flex flex-col items-center justify-between gap-4 text-center text-sm opacity-90 lg:flex-row lg:text-left">
             <p>&copy; {currentYear} SLAYE NAIL BAR. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="https://www.instagram.com/slayenailbar" target="blank" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
+            <div className="mt-0 flex flex-wrap justify-center gap-6 lg:justify-end">
+              <a href="https://www.instagram.com/slayenailbar" target="_blank" rel="noreferrer" className="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:opacity-100">
                 Instagram
               </a>
-              <a href="https://www.facebook.com/Slayenailbar" target="blank" className="hover:opacity-100 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 inline-block">
+              <a href="https://www.facebook.com/Slayenailbar" target="_blank" rel="noreferrer" className="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:opacity-100">
                 Facebook
               </a>
             </div>

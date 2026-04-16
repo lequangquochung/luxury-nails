@@ -28,15 +28,15 @@ export function About() {
                 </div>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
+              <h2 className="mb-6 text-3xl font-serif font-bold text-primary sm:text-4xl md:text-5xl">
                 Redefining Luxury Nail Care
               </h2>
 
-              <p className="text-lg text-gold-light mb-6 leading-relaxed">
+              <p className="mb-6 text-base leading-relaxed text-gold-light sm:text-lg">
                 Welcome to SLAYE NAIL BAR, where beauty meets artistry and every detail matters. Our journey began with a simple mission: to empower confidence and self-expression through exceptional nail care in a truly luxurious setting.
               </p>
 
-              <p className="text-lg text-gold-light mb-6 leading-relaxed">
+              <p className="mb-6 text-base leading-relaxed text-gold-light sm:text-lg">
                 At SLAYE NAIL BAR, we blend creativity with precision, offering a curated experience that goes beyond the ordinary. Our passionate team is dedicated to making every visit memorable—using only the finest products, the latest techniques, and a commitment to uncompromising hygiene. Discover your signature style and let your nails make a statement with us.
               </p>
 

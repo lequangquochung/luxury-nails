@@ -15,7 +15,7 @@ function scrollToServices() {
 
 export function Hero() {
   return (
-    <section className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden" style={{
+    <section className="relative flex min-h-[calc(100svh-56px)] items-center justify-center overflow-hidden px-4 py-12 sm:min-h-[calc(100svh-64px)] sm:px-6 sm:py-16 lg:px-8" style={{
       backgroundImage: `url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&h=900&fit=crop')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -24,15 +24,15 @@ export function Hero() {
       {/* Dark overlay for readability */}
       <div className="absolute inset-0 bg-black/50 -z-10" />
 
-      <div className="max-w-7xl mx-auto w-full text-center">
+      <div className="mx-auto w-full max-w-7xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
-            <span className="font-logo-slaye">SLAYE </span>
-            <span className="font-logo-nailbar">NAIL BAR</span>
+          <h1 className="mb-4 text-4xl font-bold leading-[1.05] text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
+            <span className="block font-logo-slaye sm:inline">SLAYE </span>
+            <span className="mt-2 block font-logo-nailbar text-lg tracking-[0.22em] sm:mt-0 sm:inline sm:text-inherit sm:tracking-normal">NAIL BAR</span>
           </h1>
         </motion.div>
 
@@ -40,7 +40,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-white/90 mb-6 max-w-2xl mx-auto font-light drop-shadow-md"
+          className="mx-auto mb-8 max-w-2xl text-base font-light text-white/90 drop-shadow-md sm:text-lg md:text-2xl"
         >
           Premium artistry meets exceptional care. Discover the art of elegant nail design
           and indulge in a sanctuary of relaxation.
@@ -50,18 +50,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-3 justify-center"
+          className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
         >
           <a
             href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
-            target="blank"
+            target="_blank"
+            rel="noreferrer"
             style={{ textDecoration: 'none' }}
-            className="w-full sm:w-[30%] bg-gold-dark text-primary-foreground px-10 py-4 rounded-lg hover:bg-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold"
+            className="w-full rounded-lg bg-gold-dark px-6 py-4 text-base font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold hover:shadow-lg active:scale-95 sm:w-auto sm:min-w-[240px]"
           >
             Book Your Appointment
           </a>
           <button
-            className="w-full sm:w-[30%] border-2 border-gold-dark text-gold-dark px-10 py-4 bg-background rounded-lg hover:text-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-lg font-semibold"
+            className="w-full rounded-lg border-2 border-gold-dark bg-background px-6 py-4 text-base font-semibold text-gold-dark transition-all duration-300 hover:-translate-y-0.5 hover:text-gold hover:shadow-lg active:scale-95 sm:w-auto sm:min-w-[240px]"
             onClick={scrollToServices}
           >
             View Signature Services
@@ -73,7 +74,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}

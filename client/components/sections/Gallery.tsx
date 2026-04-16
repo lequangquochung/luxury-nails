@@ -41,24 +41,24 @@ export function Gallery() {
             <div className="inline-block px-4 py-2 bg-accent/10 rounded-full mb-4">
               <span className="text-accent font-medium text-sm">Gallery</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
+            <h2 className="mb-6 text-3xl font-serif font-bold text-primary sm:text-4xl md:text-5xl">
               Our Latest Creations
             </h2>
-            <p className="text-lg text-gold-light max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-base text-gold-light sm:text-lg">
               Explore our portfolio of stunning nail designs and artistry. Each piece is
               a testament to our commitment to beauty and precision.
             </p>
           </SlideUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animation-stagger">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4 animation-stagger">
           {galleryItems.map((item, index) => (
-            <ScaleIn key={item.id} delay={index * 0.12}>
+            <ScaleIn key={item.id} delay={index * 0.12} className="h-full">
               <ImageZoom
-                className="h-64 md:h-72 rounded-xl cursor-pointer group shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                className="group aspect-square h-full w-full cursor-pointer overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
                 >
                 <div
-                  className="w-full h-full relative overflow-hidden bg-muted"
+                  className="relative h-full w-full overflow-hidden bg-muted"
                   onClick={() => {
                     setSelectedImg(item.image);
                     setOpen(true);
@@ -78,7 +78,7 @@ export function Gallery() {
         {/* Popup xem ảnh lớn với react-zoom-pan-pinch */}
         <Dialog open={open} onOpenChange={handleOpenChange}>
           <DialogOverlay />
-          <DialogContent className="max-w-3xl w-full flex flex-col items-center bg-black/95 p-0 rounded-lg md:rounded-2xl shadow-2xl overflow-hidden min-h-[60vh] md:min-h-[60vh]">
+          <DialogContent className="flex min-h-[50vh] w-[calc(100vw-1rem)] max-w-3xl flex-col items-center overflow-hidden rounded-lg bg-black/95 p-0 shadow-2xl sm:min-h-[60vh] sm:w-full md:rounded-2xl">
             {selectedImg && (
               <TransformWrapper
                 initialScale={1}
@@ -89,8 +89,8 @@ export function Gallery() {
               >
                 {({ zoomIn, zoomOut, resetTransform }) => (
                   <>
-                    <div className="flex justify-between items-center w-full px-2 py-2 gap-2 bg-black/70 md:bg-transparent z-20">
-                      <div className="flex gap-2 md:gap-3">
+                    <div className="z-20 flex w-full flex-wrap items-center justify-between gap-2 bg-black/70 px-2 py-2 md:bg-transparent">
+                      <div className="flex flex-wrap gap-2 md:gap-3">
                         <button
                           className="bg-white/10 text-white px-4 py-2 rounded-full hover:bg-white/20 text-lg md:text-base"
                           onClick={() => zoomIn()}
@@ -115,13 +115,13 @@ export function Gallery() {
                       </div>
                       <DialogClose className="bg-white/10 text-white px-4 py-2 rounded-full hover:bg-white/20 text-lg md:text-base">×</DialogClose>
                     </div>
-                    <div className="flex-1 flex items-center justify-center w-full h-[60vh] md:h-[60vh] select-none relative bg-black">
+                    <div className="relative flex h-[52vh] w-full flex-1 items-center justify-center bg-black select-none sm:h-[60vh]">
                       <TransformComponent>
                         <img
                           src={selectedImg}
                           alt="Zoomed"
                           draggable={false}
-                          className="max-h-[55vh] md:max-h-[60vh] w-auto max-w-full mx-auto rounded-md shadow-lg border border-white/10"
+                          className="mx-auto max-h-[48vh] w-auto max-w-full rounded-md border border-white/10 shadow-lg sm:max-h-[56vh] md:max-h-[60vh]"
                           style={{
                             userSelect: 'none',
                             pointerEvents: 'auto',
@@ -136,7 +136,7 @@ export function Gallery() {
                 )}
               </TransformWrapper>
             )}
-            <div className="text-white text-xs py-2 opacity-70 text-center w-full bg-black/60 md:bg-transparent px-2">
+            <div className="w-full bg-black/60 px-2 py-2 text-center text-[11px] text-white opacity-70 md:bg-transparent md:text-xs">
               Use two fingers or drag to move the image. Use the + - buttons or pinch/zoom to scale in and out.
             </div>
           </DialogContent>

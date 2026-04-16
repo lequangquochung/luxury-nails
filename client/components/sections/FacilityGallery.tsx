@@ -21,30 +21,30 @@ export function FacilityGallery() {
                         <div className="inline-block px-4 py-2 bg-accent/10 rounded-full mb-4">
                             <span className="text-accent font-medium text-sm">Our Space</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
+                        <h2 className="mb-6 text-3xl font-serif font-bold text-primary sm:text-4xl md:text-5xl">
                             Salon Facilities
                         </h2>
-                        <p className="text-lg text-gold-light max-w-2xl mx-auto">
+                        <p className="mx-auto max-w-2xl text-base text-gold-light sm:text-lg">
                             Explore our modern, clean, and luxurious salon environment.
                         </p>
                     </SlideUp>
                 </div>
-                <div className="w-full max-w-3xl mx-auto">
+                <div className="mx-auto w-full max-w-3xl px-2 sm:px-8">
                     <Swiper
                         modules={[Navigation]}
                         navigation
-                        spaceBetween={32}
+                        spaceBetween={16}
                         slidesPerView={1}
-                        className="rounded-2xl bg-transparent relative"
+                        className="relative rounded-2xl bg-transparent"
                         style={{}}
                     >
                         {FACILITY_IMAGES.map((src, idx) => (
                             <SwiperSlide key={src}>
-                                <div className="flex items-center rounded-xl justify-center min-h-[320px] md:min-h-[420px]">
+                                <div className="flex min-h-[240px] items-center justify-center rounded-xl sm:min-h-[320px] md:min-h-[420px]">
                                     <img
                                         src={src}
                                         alt={`Facility ${idx + 1}`}
-                                        className="max-h-[450px] w-auto max-w-full rounded-xl object-contain mx-auto"
+                                        className="mx-auto max-h-[260px] w-auto max-w-full rounded-xl object-contain sm:max-h-[360px] md:max-h-[450px]"
                                     />
                                 </div>
                             </SwiperSlide>
@@ -53,8 +53,8 @@ export function FacilityGallery() {
                         <style>{`
                             .swiper-button-next, .swiper-button-prev {
                                 color: #FFD700;
-                                width: 44px;
-                                height: 44px;
+                                width: 36px;
+                                height: 36px;
                                 top: 50%;
                                 transform: translateY(-50%);
                             }
@@ -65,8 +65,17 @@ export function FacilityGallery() {
                                 right: 0;
                             }
                             .swiper-button-next:after, .swiper-button-prev:after {
-                                font-size: 1.25rem;
+                                font-size: 1rem;
                                 font-weight: bold;
+                            }
+                            @media (min-width: 640px) {
+                                .swiper-button-next, .swiper-button-prev {
+                                    width: 44px;
+                                    height: 44px;
+                                }
+                                .swiper-button-next:after, .swiper-button-prev:after {
+                                    font-size: 1.25rem;
+                                }
                             }
                         `}</style>
                     </Swiper>

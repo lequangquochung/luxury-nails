@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -22,6 +22,11 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const bookingUrl = "https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3";
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname, location.hash]);
 
   const goToRoute = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -61,38 +66,38 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between ">
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+      <nav className="relative mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2 group">
+        <Link to="/" className="group relative z-20 flex min-w-0 items-center space-x-2">
           <img
             src="/imgs/logo-top-1.png"
             alt="SLAYE NAIL BAR Logo"
-            className="w-10 h-10 object-contain drop-shadow-lg"
+            className="h-9 w-9 object-contain drop-shadow-lg sm:h-10 sm:w-10"
             style={{ marginRight: 8 }}
           />
-          <span className="text-xl font-logo-slaye text-gold-dark hidden sm:inline drop-shadow">
+          <span className="hidden text-xl font-logo-slaye text-gold-dark drop-shadow sm:inline">
             SLAYE
           </span>
-          <span className="text-lg font-logo-nailbar text-gold-dark ml-2 tracking-widest hidden sm:inline">
+          <span className="ml-2 hidden text-lg font-logo-nailbar tracking-widest text-gold-dark sm:inline">
             NAIL BAR
           </span>
         </Link>
 
-        <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 md:hidden">
-          <span className="text-sm font-logo-nailbar tracking-[0.28em] text-gold-dark whitespace-nowrap">
+        <div className="pointer-events-none absolute inset-x-14 left-1/2 -translate-x-1/2 lg:hidden">
+          <span className="block truncate text-center text-[10px] font-logo-nailbar tracking-[0.24em] text-gold-dark sm:text-xs sm:tracking-[0.28em]">
             SLAYE NAIL BAR
           </span>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden items-center gap-4 lg:flex xl:gap-8">
           {navItems.map((item) => (
             <motion.a
               key={item.label}
               href={item.href}
               whileTap={{ scale: 0.93, x: 8 }}
-              className="text-gold-dark hover:text-gold transition-all duration-300 text-sm font-medium hover:scale-110 origin-center"
+              className="origin-center text-xs font-medium text-gold-dark transition-all duration-300 hover:scale-105 hover:text-gold xl:text-sm"
               onClick={(e) => {
                 if (item.type === "route") {
                   goToRoute(e, item.href);
@@ -105,10 +110,11 @@ export function Header() {
             </motion.a>
           ))}
           <a
-            className="bg-gold-dark text-background px-6 py-2 hover:bg-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 text-sm font-medium flex items-center justify-center rounded-md"
-            href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
+            className="flex items-center justify-center rounded-md bg-gold-dark px-5 py-2 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold hover:shadow-lg active:scale-95"
+            href={bookingUrl}
             style={{ textDecoration: 'none' }}
-            target="blank"
+            target="_blank"
+            rel="noreferrer"
           >
             Book Now
           </a>
@@ -117,8 +123,9 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col space-y-1.5 w-6 h-6"
+          className="relative z-20 flex h-6 w-6 shrink-0 flex-col space-y-1.5 lg:hidden"
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
           <motion.span
             animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
@@ -140,15 +147,15 @@ export function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-16 left-0 right-0 bg-background border-b border-border md:hidden"
+            className="absolute left-0 right-0 top-full border-b border-border bg-background shadow-xl lg:hidden"
           >
-            <div className="max-w-7xl mx-auto px-4 py-4 space-y-4">
+            <div className="mx-auto max-w-7xl space-y-4 px-4 py-4 sm:px-6">
               {navItems.map((item) => (
                 <motion.a
                   key={item.label}
                   href={item.href}
                   whileTap={{ scale: 0.93, x: 8 }}
-                  className="block text-foreground/100 hover:text-gold-700 transition-colors duration-200 font-medium"
+                  className="block rounded-lg border border-border/60 px-4 py-3 text-base font-medium text-foreground transition-colors duration-200 hover:bg-muted hover:text-gold"
                   onClick={(e) => {
                     if (item.type === "route") {
                       goToRoute(e, item.href, () => setIsOpen(false));
@@ -161,9 +168,11 @@ export function Header() {
                 </motion.a>
               ))}
               <a
-                href="tel:+19195562000"
-                className="w-full bg-gold-dark text-background px-6 py-2 rounded-lg hover:bg-gold transition-all duration-200 font-medium flex items-center justify-center shadow-lg"
+                href={bookingUrl}
+                className="flex w-full items-center justify-center rounded-lg bg-gold-dark px-6 py-3 font-medium text-background shadow-lg transition-all duration-200 hover:bg-gold"
                 style={{ textDecoration: 'none' }}
+                target="_blank"
+                rel="noreferrer"
                 onClick={() => setIsOpen(false)}
               >
                 Book Now
