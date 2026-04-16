@@ -55,7 +55,7 @@ export function Gallery() {
           {galleryItems.map((item, index) => (
             <ScaleIn key={item.id} delay={index * 0.12} className="h-full">
               <ImageZoom
-                className="group aspect-square h-full w-full cursor-pointer overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="aspect-square h-full w-full overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
                 >
                 <div
                   className="relative h-full w-full overflow-hidden bg-muted"
@@ -67,7 +67,7 @@ export function Gallery() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                    className="h-full w-full object-cover transition-transform duration-300 ease-out will-change-transform group-hover:scale-110"
                   />
                 </div>
               </ImageZoom>
