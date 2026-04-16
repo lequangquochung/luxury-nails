@@ -355,7 +355,7 @@ function PackageCard({
           >
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               {item.includes.map((entry) => (
-                <div key={entry} className="flex items-start gap-3 rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm text-foreground/80">
+                <div key={entry} className="flex items-center gap-3 rounded-2xl border border-border/70 bg-background/55 px-4 py-3 text-sm text-foreground/80">
                   <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/12 text-primary">
                     <Check className="h-3 w-3" />
                   </span>
