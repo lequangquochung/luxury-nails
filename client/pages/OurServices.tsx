@@ -293,7 +293,7 @@ function PackageCard({
         "rounded-[1.75rem] border p-5 sm:p-7",
         expandable ? "cursor-pointer" : "",
         featured
-          ? "border-primary/35 bg-background shadow-[0_22px_60px_rgba(212,175,55,0.12)]"
+          ? "border-border/80 bg-card/70"
           : "border-border/80 bg-card/70",
       ].join(" ")}
     >
