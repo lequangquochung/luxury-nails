@@ -76,18 +76,23 @@ export function Header() {
             className="h-9 w-9 object-contain drop-shadow-lg sm:h-10 sm:w-10"
             style={{ marginRight: 8 }}
           />
-          <span className="hidden text-xl font-logo-slaye text-gold-dark drop-shadow sm:inline">
+          <span className="hidden text-xl font-logo-slaye text-gold-dark drop-shadow lg:inline">
             SLAYE
           </span>
-          <span className="ml-2 hidden text-lg font-logo-nailbar tracking-widest text-gold-dark sm:inline">
+          <span className="ml-2 hidden text-lg font-logo-nailbar tracking-widest text-gold-dark lg:inline">
             NAIL BAR
           </span>
         </Link>
 
-        <div className="pointer-events-none absolute inset-x-14 left-1/2 -translate-x-1/2 lg:hidden">
-          <span className="block truncate text-center text-[10px] font-logo-nailbar tracking-[0.24em] text-gold-dark sm:text-xs sm:tracking-[0.28em]">
-            SLAYE NAIL BAR
-          </span>
+        <div className="pointer-events-none absolute left-12 right-10 top-1/2 -translate-y-1/2 lg:hidden">
+          <div className="flex items-center justify-center whitespace-nowrap text-center text-gold-dark">
+            <span className="font-logo-slaye text-[0.95rem] drop-shadow sm:text-xl md:text-2xl">
+              SLAYE
+            </span>
+            <span className="ml-1.5 font-logo-nailbar text-[1rem] tracking-[0.08em] text-gold-dark sm:ml-2 sm:text-sm sm:tracking-[0.2em] md:text-lg md:tracking-[0.24em]">
+              NAIL BAR
+            </span>
+          </div>
         </div>
 
         {/* Desktop Navigation */}
