@@ -25,9 +25,9 @@ export function Contact() {
             <div className="space-y-6">
               {/* Address */}
               <FadeIn>
-                <div className="flex gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                <div className="flex gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer items-center">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-accent/10 transition-transform duration-300 hover:scale-110">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-lg transition-transform duration-300 hover:scale-110">
                       <svg
                         className="h-6 w-6 text-primary"
                         fill="none"
@@ -62,9 +62,9 @@ export function Contact() {
 
               {/* Phone */}
               <FadeIn delay={0.1}>
-                <div className="flex gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                <div className="flex gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer items-center">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-accent/10 transition-transform duration-300 hover:scale-110">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-lg transition-transform duration-300 hover:scale-110">
                       <svg
                         className="h-6 w-6 text-primary"
                         fill="none"
@@ -95,9 +95,9 @@ export function Contact() {
 
               {/* Email */}
               <FadeIn delay={0.2}>
-                <div className="flex gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                <div className="flex gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer items-center">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-accent/10 transition-transform duration-300 hover:scale-110">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-lg transition-transform duration-300 hover:scale-110">
                       <svg
                         className="h-6 w-6 text-primary"
                         fill="none"
@@ -128,9 +128,9 @@ export function Contact() {
 
               {/* Hours */}
               <FadeIn delay={0.3}>
-                <div className="flex gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                <div className="flex gap-4 transition-all duration-300 hover:translate-x-2 cursor-pointer items-center">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-accent/10 transition-transform duration-300 hover:scale-110">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-lg transition-transform duration-300 hover:scale-110">
                       <svg
                         className="h-6 w-6 text-primary"
                         fill="none"
