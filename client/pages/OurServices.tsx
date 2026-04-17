@@ -19,6 +19,8 @@ type PackageItem = {
   name: string;
   regular?: string;
   gel?: string;
+  regularLabel?: string;
+  gelLabel?: string;
   description?: string;
   includes: string[];
   massage?: string;
@@ -81,7 +83,6 @@ const pedicurePackages: PackageItem[] = [
       "Lotion massage and hot towel",
       "Callus treatment",
       "Stone massage",
-      "Wooden foot roller massage",
       "Neck wrap",
       "Polish finish",
     ],
@@ -95,7 +96,7 @@ const pedicurePackages: PackageItem[] = [
       "Trim, shape, and cuticle treatment",
       "Sugar scrub",
       "Lotion massage",
-      "Hot towel and neck wrap",
+      "Hot towel",
       "Polish finish",
     ],
     massage: "5 min massage",
@@ -120,6 +121,7 @@ const manicurePackages: PackageItem[] = [
     name: "Signature Manicure",
     regular: "$47",
     gel: "$60",
+    gelLabel: "Gel Polish $60",
     includes: [
       "Trim and shape",
       "Cuticle care",
@@ -133,6 +135,7 @@ const manicurePackages: PackageItem[] = [
   {
     name: "Gel Manicure",
     regular: "$43",
+    regularLabel: "Price",
     includes: [
       "Trim and shape",
       "Cuticle care",
@@ -144,6 +147,7 @@ const manicurePackages: PackageItem[] = [
   {
     name: "Regular Manicure",
     regular: "$28",
+    regularLabel: "Price",
     includes: ["Trim and shape", "Cuticle care", "Lotion massage", "Hot towel"],
   },
 ];
@@ -198,7 +202,7 @@ const addOns: SimpleService[] = [
   { name: "Deep French", price: "$20+" },
   { name: "Chrome", price: "$15+" },
   { name: "Cat Eye", price: "$15+" },
-  { name: "Buffing Shine", price: "$5+" },
+  { name: "Buffing Shine", price: "$7+" },
   { name: "Collagen", price: "$10+" },
   { name: "Paraffin", price: "$10+" },
   { name: "Callus Treatment", price: "$10+" },
@@ -214,8 +218,8 @@ const polishChanges: SplitPriceService[] = [
 const waxingServices: SimpleService[] = [
   { name: "Eyebrows", price: "$15+" },
   { name: "Lips", price: "$10+" },
-  { name: "Chin", price: "$10+" },
-  { name: "Face", price: "$15+" },
+  { name: "Chin", price: "$15+" },
+  { name: "Face", price: "$45+" },
   { name: "Full Arms", price: "$45+" },
   { name: "Half Arms", price: "$30+" },
   { name: "Neck", price: "$15+" },
@@ -271,6 +275,7 @@ function PackageCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   const showDetails = !expandable || isExpanded;
+  const showSignatureGelPrice = item.name === "Signature Manicure" && Boolean(item.gel);
   const toggleExpanded = () => setIsExpanded((current) => !current);
 
   return (
@@ -327,9 +332,19 @@ function PackageCard({
           expandable ? "sm:grid-cols-1 lg:max-w-[160px]" : "",
         ].join(" ")}>
           <div className="w-full min-w-0 rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
-            <div className="flex items-center justify-between gap-3 lg:block">
-              <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">Regular</div>
-              <div className="text-2xl font-semibold text-primary lg:mt-2">{item.regular ?? "Ask"}</div>
+            <div className={showSignatureGelPrice ? "space-y-3" : undefined}>
+              <div className="flex items-center justify-between gap-3 lg:block">
+                <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">{item.regularLabel ?? "Regular polish"}</div>
+                <div className="text-2xl font-semibold text-primary lg:mt-2">{item.regular ?? "Ask"}</div>
+              </div>
+              {showSignatureGelPrice ? (
+                <div className="border-t border-primary/15 pt-3">
+                  <div className="flex items-center justify-between gap-3 lg:block">
+                    <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">Gel polish</div>
+                    <div className="text-2xl font-semibold text-primary lg:mt-2">{item.gel}</div>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
           {item.gel && !expandable ? (
@@ -372,10 +387,10 @@ function PackageCard({
                     {item.massage}
                   </div>
                 ) : null}
-                {item.gel ? (
+                {item.gel && !showSignatureGelPrice ? (
                   <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/70 p-3 text-xs font-medium uppercase text-primary">
                     <Sparkles className="h-4 w-4" />
-                    Gel +$20
+                    {item.gelLabel ?? "Gel +$20"}
                   </div>
                 ) : null}
               </div>

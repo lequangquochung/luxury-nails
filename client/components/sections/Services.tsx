@@ -7,28 +7,24 @@ export function Services() {
     {
       name: "Luxury Slaye Pedicure",
       category: "Pedicure Packages",
-      price: "Regular $90",
       description: "Our most complete pedicure ritual with restorative care, massage, and finishing treatments.",
       features: ["6-step package", "Callus treatment", "Collagen or paraffin", "20 min massage"],
     },
     {
       name: "Signature Manicure",
       category: "Manicure Packages",
-      price: "Regular $47",
       description: "A polished manicure option with exfoliation, moisture, and a refined finish.",
       features: ["Sugar scrub", "Hot towel", "Paraffin or collagen gloves", "5 min massage"],
     },
     {
       name: "Dipping Powder",
       category: "Nail Enhancement",
-      price: "From $55+",
       description: "A durable enhancement option for natural nails, tip sets, and redo appointments.",
       features: ["Natural nails $55+", "With tip $60+", "Removal and redo $60+", "Longwear finish"],
     },
     {
       name: "Add-Ons & Extras",
       category: "Finishing Options",
-      price: "From $5+",
       description: "Customize your set with shape, chrome, french details, callus treatment, and more.",
       features: ["Special shape $5+", "French $10+", "Chrome $15+", "Extra massage $15+"],
     },
@@ -56,13 +52,12 @@ export function Services() {
           {services.map((service, index) => (
             <FadeIn key={service.name} delay={index * 0.1} className="h-full">
               <div className="h-full bg-background rounded-xl p-8 border border-border transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 flex flex-col">
-                <div className="inline-flex rounded-full border border-primary/20 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-primary/80">
+                <div className="inline-flex rounded-full justify-center border border-primary/20 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-primary/80">
                   {service.category}
                 </div>
-                <h3 className="text-2xl font-serif font-semibold text-primary mb-3">
+                <h3 className="text-2xl font-serif font-semibold text-center text-primary mb-3">
                   {service.name}
                 </h3>
-                <div className="mb-4 text-sm font-semibold text-primary">{service.price}</div>
                 <p className="text-foreground/60 mb-6 text-sm leading-relaxed">
                   {service.description}
                 </p>
