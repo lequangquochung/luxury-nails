@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import OurServices from "./pages/OurServices";
+import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ const App = () => (
       <BrowserRouter>
         <AppContent />
       </BrowserRouter>
+      <Analytics />
     </TooltipProvider>
   </QueryClientProvider>
 );
