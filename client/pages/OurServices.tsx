@@ -592,21 +592,6 @@ export default function OurServices() {
                 Visit the salon
               </a>
             </div>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-border/80 bg-card/60 p-4 backdrop-blur">
-                <div className="text-xs uppercase tracking-[0.24em] text-primary/80">Top Tier</div>
-                <div className="mt-2 text-lg font-semibold text-foreground">Luxury Slaye up to $110</div>
-              </div>
-              <div className="rounded-2xl border border-border/80 bg-card/60 p-4 backdrop-blur">
-                <div className="text-xs uppercase tracking-[0.24em] text-primary/80">Enhancements</div>
-                <div className="mt-2 text-lg font-semibold text-foreground">Dip, Gel X, Builder, Acrylic</div>
-              </div>
-              <div className="rounded-2xl border border-border/80 bg-card/60 p-4 backdrop-blur">
-                <div className="text-xs uppercase tracking-[0.24em] text-primary/80">Extras</div>
-                <div className="mt-2 text-lg font-semibold text-foreground">Waxing, kids, drinks, add-ons</div>
-              </div>
-            </div>
           </div>
 
           <motion.div
