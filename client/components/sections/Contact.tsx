@@ -162,14 +162,14 @@ export function Contact() {
 
           {/* Google Maps Embed */}
           <SlideUp>
-            <div className="min-h-[320px] overflow-hidden rounded-xl border border-border shadow-lg sm:min-h-[420px] lg:h-full">
+            <div className="relative h-[320px] overflow-hidden rounded-xl border border-border shadow-lg sm:h-[420px] md:h-[480px] lg:h-full lg:min-h-[520px]">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.2122696946617!2d-78.5440563!3d35.966235499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac516df6b51175%3A0x183d8ff2b6b44886!2sNAIL%20KITCHEN%20-%20WAKE%20FOREST!5e0!3m2!1sen!2s!4v1775574405779!5m2!1sen!2s" width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full" />
+                className="absolute inset-0 h-full w-full" />
             </div>
           </SlideUp>
         </div>
