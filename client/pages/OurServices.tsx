@@ -220,6 +220,7 @@ const addOns: SimpleService[] = [
   { name: "Deep French", price: "$20+" },
   { name: "Chrome", price: "$15+" },
   { name: "Cat Eye", price: "$15+" },
+  { name: "Ombre", price: "$15+" },
   { name: "Buffing Shine", price: "$7+" },
   { name: "Collagen", price: "$10+" },
   { name: "Paraffin", price: "$10+" },
