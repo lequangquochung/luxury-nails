@@ -17,16 +17,16 @@ export function Services() {
       features: ["Sugar scrub and fresh orange treatment", "Hot towel", "Paraffin or collagen gloves", "5 min massage"],
     },
     {
-      name: "Dipping Powder",
+      name: "Gel-X",
       category: "Nail Enhancement",
-      description: "A durable enhancement option for natural nails, tip sets, and redo appointments.",
-      features: ["Natural nails", "With tip", "Removal and redo", "Longwear finish"],
+      description: "Made from soft gel full-cover tips that are pre-shaped and applied over natural nails.Cured with gel adhesive for a flexible, natural-looking, and non-damaging extension.",
+      features: ["Fast application", "Durable and long-lasting", "Lightweight", "Gentle on natural nails", "Natural feel"],
     },
     {
-      name: "Add-Ons & Extras",
-      category: "Finishing Options",
-      description: "Customize your set with shape, chrome, french details, callus treatment, and more.",
-      features: ["Special shape", "French", "Chrome", "Extra massage"],
+      name: "Builder Gel  ",
+      category: "Nail Enhancement",
+      description: "A thicker gel than regular gel polish, used to build structure on natural nails.Creates a strong, flexible overlay that can be refilled over time.",
+      features: ["Built directly on natural nails", "Refillable (no full removal needed)", "Strong yet lightweight", "Promotes healthier nail growth"],
     },
   ];
 
@@ -64,7 +64,7 @@ export function Services() {
                 <ul className="mt-auto space-y-3 pt-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-3 text-sm">
-                      <div className="w-2 h-2 bg-accent rounded-full" />
+                      <div className="shrink-0 w-2 h-2 bg-accent rounded-full" />
                       <span className="text-foreground/70">{feature}</span>
                     </li>
                   ))}
