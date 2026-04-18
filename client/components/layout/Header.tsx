@@ -63,6 +63,7 @@ export function Header() {
     { label: "Gallery", href: "#gallery", type: "section" as const },
     { label: "Contact", href: "#contact", type: "section" as const },
     { label: "Full Menu", href: "/our-services", type: "route" as const },
+    { label: "Policies", href: "/policies", type: "route" as const },
   ];
 
   return (

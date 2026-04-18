@@ -58,6 +58,16 @@ export function Footer() {
               </li>
               <li>
                 <motion.a
+                  href="/policies"
+                  whileTap={{ scale: 0.93, x: 8 }}
+                  className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
+                  onClick={e => navigateToRoute(e, '/policies')}
+                >
+                  Policies
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
                   href="#about"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"

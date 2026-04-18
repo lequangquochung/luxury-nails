@@ -32,7 +32,7 @@ export function Hero() {
         >
           <h1 className="mb-4 text-4xl font-bold leading-[1.05] text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="block font-logo-slaye sm:inline">SLAYE </span>
-            <span className="mt-2 block font-logo-nailbar text-lg tracking-[0.22em] sm:mt-0 sm:inline sm:text-inherit sm:tracking-normal">NAIL BAR</span>
+            <span className="mt-2 block font-logo-nailbar text-3xl tracking-[0.22em] sm:mt-0 sm:inline sm:text-inherit sm:tracking-normal">NAIL BAR</span>
           </h1>
         </motion.div>
 

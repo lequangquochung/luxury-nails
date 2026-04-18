@@ -14,19 +14,19 @@ export function Services() {
       name: "Signature Manicure",
       category: "Manicure Packages",
       description: "A polished manicure option with exfoliation, moisture, and a refined finish.",
-      features: ["Sugar scrub", "Hot towel", "Paraffin or collagen gloves", "5 min massage"],
+      features: ["Sugar scrub and fresh orange treatment", "Hot towel", "Paraffin or collagen gloves", "5 min massage"],
     },
     {
       name: "Dipping Powder",
       category: "Nail Enhancement",
       description: "A durable enhancement option for natural nails, tip sets, and redo appointments.",
-      features: ["Natural nails $55+", "With tip $60+", "Removal and redo $60+", "Longwear finish"],
+      features: ["Natural nails", "With tip", "Removal and redo", "Longwear finish"],
     },
     {
       name: "Add-Ons & Extras",
       category: "Finishing Options",
       description: "Customize your set with shape, chrome, french details, callus treatment, and more.",
-      features: ["Special shape $5+", "French $10+", "Chrome $15+", "Extra massage $15+"],
+      features: ["Special shape", "French", "Chrome", "Extra massage"],
     },
   ];
 

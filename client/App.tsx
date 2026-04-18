@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import OurServices from "./pages/OurServices";
+import Policies from "./pages/Policies";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/our-services" element={<OurServices />} />
+        <Route path="/policies" element={<Policies />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

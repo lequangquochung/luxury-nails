@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
@@ -14,6 +14,12 @@ import {
   Star,
   Wine,
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 type PackageItem = {
   name: string;
@@ -24,6 +30,8 @@ type PackageItem = {
   description?: string;
   includes: string[];
   massage?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 type SimpleService = {
@@ -44,6 +52,8 @@ const pedicurePackages: PackageItem[] = [
     regular: "$90",
     gel: "$110",
     description: "Full signature pedicure with the most complete restorative ritual in the menu.",
+    image: "/imgs/slaye.jpg",
+    imageAlt: "Luxury Slaye pedicure service",
     includes: [
       "6-step package",
       "Trim, shape, and cuticle treatment",
@@ -61,6 +71,8 @@ const pedicurePackages: PackageItem[] = [
     name: "Deluxe",
     regular: "$73",
     gel: "$93",
+    image: "/imgs/deluxe.jpg",
+    imageAlt: "Deluxe pedicure service",
     includes: [
       "Trim, shape, and cuticle treatment",
       "Sugar scrub and fresh orange treatment",
@@ -77,9 +89,11 @@ const pedicurePackages: PackageItem[] = [
     name: "Organic",
     regular: "$59",
     gel: "$79",
+    image: "/imgs/organic.jpg",
+    imageAlt: "Organic pedicure service",
     includes: [
       "Trim, shape, and cuticle treatment",
-      "Sugar scrub",
+      "Sugar scrub and fresh orange treatment",
       "Lotion massage and hot towel",
       "Callus treatment",
       "Stone massage",
@@ -92,9 +106,11 @@ const pedicurePackages: PackageItem[] = [
     name: "Collagen",
     regular: "$49",
     gel: "$69",
+    image: "/imgs/collagen.jpg",
+    imageAlt: "Collagen pedicure service",
     includes: [
       "Trim, shape, and cuticle treatment",
-      "Sugar scrub",
+      "Sugar scrub and fresh orange treatment",
       "Lotion massage",
       "Hot towel",
       "Polish finish",
@@ -105,9 +121,11 @@ const pedicurePackages: PackageItem[] = [
     name: "Regular",
     regular: "$39",
     gel: "$59",
+    image: "/gallery-4.jpg",
+    imageAlt: "Regular pedicure service",
     includes: [
       "Trim, shape, and cuticle treatment",
-      "Sugar scrub",
+      "Sugar scrub and fresh orange treatment",
       "Lotion massage",
       "Hot towel",
       "Polish finish",
@@ -125,7 +143,7 @@ const manicurePackages: PackageItem[] = [
     includes: [
       "Trim and shape",
       "Cuticle care",
-      "Sugar scrub",
+      "Sugar scrub and fresh orange treatment",
       "Lotion massage",
       "Hot towel",
       "Paraffin or collagen gloves",
@@ -273,10 +291,44 @@ function PackageCard({
   expandable?: boolean;
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isImageOpen, setIsImageOpen] = useState(false);
+  const [hasPreviewImage, setHasPreviewImage] = useState(Boolean(item.image));
+  const suppressExpandUntilRef = useRef(0);
 
   const showDetails = !expandable || isExpanded;
   const showSignatureGelPrice = item.name === "Signature Manicure" && Boolean(item.gel);
-  const toggleExpanded = () => setIsExpanded((current) => !current);
+  const showTopRating = item.name === "Luxury Slaye";
+  const showPopular = item.name === "Deluxe";
+  const packageBadge = showTopRating ? (
+    <div className="inline-flex shrink-0 items-center gap-0.5 rounded-full border border-primary/20 bg-primary/10 px-2 py-1 text-primary sm:gap-1 sm:px-3 sm:py-1.5">
+      {Array.from({ length: 5 }).map((_, index) => (
+        <Star key={`${item.name}-top-rating-${index}`} className="h-3 w-3 fill-current sm:h-3.5 sm:w-3.5" />
+      ))}
+    </div>
+  ) : showPopular ? (
+    <div className="inline-flex shrink-0 items-center rounded-full border border-primary/20 bg-primary/10 px-2 py-1 text-primary sm:px-3 sm:py-1.5">
+      <span className="text-[8px] font-semibold uppercase tracking-[0.18em] text-primary/85 sm:text-[10px] sm:tracking-[0.24em]">Popular</span>
+    </div>
+  ) : null;
+
+  useEffect(() => {
+    setHasPreviewImage(Boolean(item.image));
+  }, [item.image]);
+
+  const suppressExpandTemporarily = () => {
+    suppressExpandUntilRef.current = Date.now() + 250;
+  };
+  const toggleExpanded = () => {
+    if (isImageOpen) {
+      return;
+    }
+
+    if (Date.now() < suppressExpandUntilRef.current) {
+      return;
+    }
+
+    setIsExpanded((current) => !current);
+  };
 
   return (
     <motion.article
@@ -286,17 +338,22 @@ function PackageCard({
       transition={{ duration: 0.45 }}
       onClick={expandable ? toggleExpanded : undefined}
       onKeyDown={expandable ? (event) => {
+        if (isImageOpen) {
+          return;
+        }
+
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           toggleExpanded();
         }
       } : undefined}
       role={expandable ? "button" : undefined}
-      tabIndex={expandable ? 0 : undefined}
+      tabIndex={expandable && !isImageOpen ? 0 : undefined}
       aria-expanded={expandable ? isExpanded : undefined}
       className={[
         "rounded-[1.75rem] border p-5 sm:p-7",
-        expandable ? "cursor-pointer" : "",
+        expandable && !isImageOpen ? "cursor-pointer" : "",
+        isImageOpen ? "pointer-events-none" : "",
         featured
           ? "border-border/80 bg-card/70"
           : "border-border/80 bg-card/70",
@@ -306,9 +363,12 @@ function PackageCard({
         <div className="min-w-0 flex-1">
           {expandable ? (
             <div className="min-w-0 flex-1">
-              <h3 className="text-[clamp(1.5rem,6vw,2.4rem)] leading-[1.1] text-foreground">
-                {item.name}
-              </h3>
+              <div className="flex flex-nowrap items-center gap-2 sm:gap-3">
+                <h3 className="min-w-0 shrink text-[clamp(1.5rem,6vw,2.4rem)] leading-[1.1] text-foreground whitespace-nowrap">
+                  {item.name}
+                </h3>
+                {packageBadge}
+              </div>
               {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
               <div className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-primary/80">
                 <ChevronDown className={[
@@ -320,38 +380,96 @@ function PackageCard({
             </div>
           ) : (
             <>
-              <h3 className="text-[clamp(1.5rem,6vw,2.4rem)] leading-[1.1] text-foreground">
-                {item.name}
-              </h3>
+              <div className="flex flex-nowrap items-center gap-2 sm:gap-3">
+                <h3 className="min-w-0 shrink text-[clamp(1.5rem,6vw,2.4rem)] leading-[1.1] text-foreground whitespace-nowrap">
+                  {item.name}
+                </h3>
+                {packageBadge}
+              </div>
               {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
             </>
           )}
         </div>
+        {hasPreviewImage && item.image ? (
+          <>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                suppressExpandTemporarily();
+                setIsImageOpen(true);
+              }}
+              className="relative h-[108px] w-[108px] overflow-hidden rounded-[1.25rem] border border-primary/20 bg-background/70 self-start text-left transition-transform duration-300 hover:-translate-y-0.5 sm:h-[116px] sm:w-[116px] lg:mx-4 lg:h-[112px] lg:w-[112px] lg:shrink-0"
+              aria-label={`Open preview image for ${item.name}`}
+            >
+            <img
+              src={item.image}
+              alt={item.imageAlt ?? item.name}
+              className="h-full w-full object-cover transition-transform duration-500"
+              onError={() => {
+                setHasPreviewImage(false);
+                setIsImageOpen(false);
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/65 via-background/10 to-transparent" />
+            <div className="absolute left-1/2 top-2 inline-flex min-w-[4.75rem] -translate-x-1/2 items-center justify-center whitespace-nowrap rounded-full border border-white/15 bg-background/65 px-3 py-1 text-center text-[9px] font-medium uppercase tracking-[0.18em] text-primary">
+              Preview
+            </div>
+            </button>
+
+            <Dialog open={isImageOpen} onOpenChange={(open) => {
+              if (!open) {
+                suppressExpandTemporarily();
+              }
+
+              setIsImageOpen(open);
+            }}>
+              <DialogContent className="w-[calc(100vw-1.5rem)] max-w-3xl overflow-hidden border-white/10 bg-black/95 p-0 shadow-2xl sm:rounded-[1.5rem] [&>button]:rounded-full [&>button]:border [&>button]:border-primary/30 [&>button]:bg-black/55 [&>button]:text-primary [&>button]:opacity-100 hover:[&>button]:bg-black/75 hover:[&>button]:text-primary focus:[&>button]:text-primary data-[state=open]:[&>button]:bg-black/55 data-[state=open]:[&>button]:text-primary">
+                <DialogTitle className="sr-only">{item.name} image preview</DialogTitle>
+                <DialogDescription className="sr-only">
+                  Enlarged preview image for {item.name}.
+                </DialogDescription>
+                <div className="flex items-center justify-center bg-black p-3 sm:p-4">
+                  <img
+                    src={item.image}
+                    alt={item.imageAlt ?? item.name}
+                    className="max-h-[80vh] w-auto max-w-full rounded-[1rem] object-contain"
+                    onError={() => {
+                      setHasPreviewImage(false);
+                      setIsImageOpen(false);
+                    }}
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
+          </>
+        ) : null}
         <div className={[
           "grid gap-3 sm:grid-cols-1 lg:ml-6 lg:flex-1 lg:justify-end",
-          expandable ? "sm:grid-cols-1 lg:max-w-[160px]" : "",
+          expandable ? "sm:grid-cols-1 lg:max-w-[190px]" : "",
         ].join(" ")}>
-          <div className="w-full min-w-0 rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
-            <div className={showSignatureGelPrice ? "space-y-3" : undefined}>
-              <div className="flex items-center justify-between gap-3 lg:block">
-                <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">{item.regularLabel ?? "Regular polish"}</div>
-                <div className="text-2xl font-semibold text-primary lg:mt-2">{item.regular ?? "Ask"}</div>
+          <div className="flex w-full min-w-0 items-center rounded-2xl border border-primary/20 bg-background/70 p-4 sm:h-[116px] lg:min-w-[116px] lg:h-[112px]">
+            <div className={showSignatureGelPrice ? "w-full space-y-3" : "w-full"}>
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 lg:grid-cols-1 lg:items-start lg:gap-y-2">
+                <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">{item.regularLabel ?? "Regular polish"}</div>
+                <div className="justify-self-end text-2xl font-semibold text-primary lg:justify-self-start">{item.regular ?? "Ask"}</div>
               </div>
               {showSignatureGelPrice ? (
                 <div className="border-t border-primary/15 pt-3">
-                  <div className="flex items-center justify-between gap-3 lg:block">
-                    <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">Gel polish</div>
-                    <div className="text-2xl font-semibold text-primary lg:mt-2">{item.gel}</div>
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 lg:grid-cols-1 lg:items-start lg:gap-y-2">
+                    <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">Gel polish</div>
+                    <div className="justify-self-end text-2xl font-semibold text-primary lg:justify-self-start">{item.gel}</div>
                   </div>
                 </div>
               ) : null}
             </div>
           </div>
           {item.gel && !expandable ? (
-            <div className="w-full min-w-0 rounded-2xl border border-primary/20 bg-background/70 p-4 text-left lg:min-w-[116px] lg:text-center">
-              <div className="flex items-center justify-between gap-3 lg:block">
+            <div className="w-full min-w-0 rounded-2xl border border-primary/20 bg-background/70 p-4 lg:min-w-[116px]">
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 lg:grid-cols-1 lg:items-start lg:gap-y-2">
                 <div className="text-xs uppercase tracking-[0.18em] text-foreground/58">Gel</div>
-                <div className="text-2xl font-semibold text-primary lg:mt-2">{item.gel}</div>
+                <div className="justify-self-end text-2xl font-semibold text-primary lg:justify-self-start">{item.gel}</div>
               </div>
             </div>
           ) : null}
@@ -415,9 +533,9 @@ function PriceListCard({ title, items }: { title: string; items: SimpleService[]
       <div className="mt-6 space-y-4">
         {items.map((item) => (
           <div key={`${title}-${item.name}`} className="rounded-2xl border border-border/70 bg-background/55 p-4">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-              <div className="text-sm font-medium text-foreground">{item.name}</div>
-              <div className="text-sm font-semibold text-primary sm:shrink-0">{item.price}</div>
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0 text-sm font-medium text-foreground">{item.name}</div>
+              <div className="shrink-0 text-right text-sm font-semibold text-primary">{item.price}</div>
             </div>
             {item.details?.length ? (
               <div className="mt-2 space-y-1 text-sm text-foreground/65">
@@ -641,23 +759,7 @@ export default function OurServices() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-primary/20 bg-background p-6 sm:p-8 lg:p-10">
-          <div className="mx-auto text-center">
-            <div className="text-xl uppercase tracking-[0.28em] text-primary">Policies & Notes</div>
-          </div>
-
-          <div className="mt-8 grid gap-4">
-            {policyNotes.map((note) => (
-              <div key={note} className="rounded-2xl border border-border/70 bg-background/60 p-4 sm:p-5">
-                <p className="text-sm leading-7 text-foreground/78 sm:text-base">{note}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-16 sm:px-6 lg:px-8">
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="rounded-[2rem] border border-primary/20 bg-background p-8 sm:p-10">
             <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
