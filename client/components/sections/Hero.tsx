@@ -30,10 +30,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="mb-4 text-4xl font-bold leading-[1.05] text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="block font-logo-slaye sm:inline">SLAYE </span>
-            <span className="mt-2 block font-logo-nailbar text-3xl tracking-[0.22em] sm:mt-0 sm:inline sm:text-inherit sm:tracking-normal">NAIL BAR</span>
-          </h1>
+          <div className="mb-8 text-4xl font-bold text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-6xl">
+            <p className="block font-logo-slaye sm:inline md:block">SLAYE </p>
+            <p className="block font-logo-nailbar text-3xl tracking-[0.14em] sm:mt-0 sm:inline sm:text-inherit sm:tracking-[0.08em] md:-mt-2 lg:-mt-3">NAIL BAR</p>
+          </div>
         </motion.div>
 
         <motion.p
