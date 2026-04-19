@@ -401,7 +401,7 @@ function PackageCard({
                 suppressExpandTemporarily();
                 setIsImageOpen(true);
               }}
-              className="relative h-[108px] w-[108px] overflow-hidden rounded-[1.25rem] border border-primary/20 bg-background/70 self-start text-left transition-transform duration-300 hover:-translate-y-0.5 sm:h-[116px] sm:w-[116px] lg:mx-4 lg:h-[112px] lg:w-[112px] lg:shrink-0"
+              className="relative h-[108px] w-[108px] overflow-hidden rounded-xl border border-primary/20 bg-background/70 self-start text-left transition-transform duration-300 hover:-translate-y-0.5 sm:h-[116px] sm:w-[116px] lg:mx-4 lg:h-[112px] lg:w-[112px] lg:shrink-0"
               aria-label={`Open preview image for ${item.name}`}
             >
             <img
@@ -432,15 +432,17 @@ function PackageCard({
                   Enlarged preview image for {item.name}.
                 </DialogDescription>
                 <div className="flex items-center justify-center bg-black p-3 sm:p-4">
-                  <img
-                    src={item.image}
-                    alt={item.imageAlt ?? item.name}
-                    className="max-h-[80vh] w-auto max-w-full rounded-[1rem] object-contain"
-                    onError={() => {
-                      setHasPreviewImage(false);
-                      setIsImageOpen(false);
-                    }}
-                  />
+                  <div className="aspect-square w-full max-w-[min(80vw,32rem)] overflow-hidden rounded-full border border-white/10">
+                    <img
+                      src={item.image}
+                      alt={item.imageAlt ?? item.name}
+                      className="h-full w-full object-cover"
+                      onError={() => {
+                        setHasPreviewImage(false);
+                        setIsImageOpen(false);
+                      }}
+                    />
+                  </div>
                 </div>
               </DialogContent>
             </Dialog>
