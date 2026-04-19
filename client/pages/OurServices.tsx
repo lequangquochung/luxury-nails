@@ -174,9 +174,9 @@ const nailEnhancements: Array<{ title: string; items: SimpleService[] }> = [
   {
     title: "Dipping Powder",
     items: [
-      { name: "Dipping with Natural Nails", price: "$55+" },
-      { name: "Dipping with Tip", price: "$60+" },
-      { name: "Dipping with Removal and Redo", price: "$60+" },
+      { name: "Dipping w/ Natural Nails", price: "$50+" },
+      { name: "Dipping w/ Tip", price: "$60+" },
+      { name: "Dipping w/ Removal and Redo", price: "$55+" },
     ],
   },
   {
