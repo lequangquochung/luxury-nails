@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-function scrollToSection(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string, closeMenu?: () => void) {
-  const id = href.replace('#', '');
+function scrollToSection(
+  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  href: string,
+  closeMenu?: () => void,
+) {
+  const id = href.replace("#", "");
   const el = document.getElementById(id);
   if (el) {
     e.preventDefault();
@@ -12,7 +16,7 @@ function scrollToSection(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, hre
     const targetY = rect.top + scrollTop - 70; // Offset for sticky header
     window.scrollTo({
       top: targetY,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
     if (closeMenu) closeMenu();
   }
@@ -22,7 +26,8 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const bookingUrl = "https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3";
+  const bookingUrl =
+    "https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3";
 
   useEffect(() => {
     setIsOpen(false);
@@ -59,7 +64,11 @@ export function Header() {
 
   const navItems = [
     { label: "About", href: "#about", type: "section" as const },
-    { label: "Signature Services", href: "#services", type: "section" as const },
+    {
+      label: "Signature Services",
+      href: "#services",
+      type: "section" as const,
+    },
     { label: "Gallery", href: "#gallery", type: "section" as const },
     { label: "Contact", href: "#contact", type: "section" as const },
     { label: "Full Menu", href: "/our-services", type: "route" as const },
@@ -70,7 +79,10 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
       <nav className="relative mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/" className="group relative z-20 flex min-w-0 items-center space-x-2">
+        <Link
+          to="/"
+          className="group relative z-20 flex min-w-0 items-center space-x-2"
+        >
           <img
             src="/imgs/logo-top-1.png"
             alt="SLAYE NAIL BAR Logo"
@@ -118,7 +130,7 @@ export function Header() {
           <a
             className="flex items-center justify-center rounded-md bg-gold-dark px-5 py-2 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold hover:shadow-lg active:scale-95"
             href={bookingUrl}
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: "none" }}
             target="_blank"
             rel="noreferrer"
           >
@@ -176,7 +188,7 @@ export function Header() {
               <a
                 href={bookingUrl}
                 className="flex w-full items-center justify-center rounded-lg bg-gold-dark px-6 py-3 font-medium text-background shadow-lg transition-all duration-200 hover:bg-gold"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: "none" }}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setIsOpen(false)}

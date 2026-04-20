@@ -3,7 +3,10 @@ import { FadeIn } from "../animations/FadeIn";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-12 md:py-20 bg-background px-4 sm:px-6 lg:px-8">
+    <section
+      id="contact"
+      className="py-12 md:py-20 bg-background px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <SlideUp>
@@ -14,7 +17,8 @@ export function Contact() {
               Get In Touch
             </h2>
             <p className="mx-auto max-w-2xl text-base text-gold-light sm:text-lg">
-              Ready to experience luxury nail care? Book your appointment or visit us today.
+              Ready to experience luxury nail care? Book your appointment or
+              visit us today.
             </p>
           </SlideUp>
         </div>
@@ -85,7 +89,10 @@ export function Contact() {
                       Phone
                     </h3>
                     <p className="text-gold-light">
-                      <a href="tel:+19195562000" className="transition-colors hover:text-primary">
+                      <a
+                        href="tel:+19195562000"
+                        className="transition-colors hover:text-primary"
+                      >
                         (919) 556 2000
                       </a>
                     </p>
@@ -118,7 +125,10 @@ export function Contact() {
                       Email
                     </h3>
                     <p className="text-gold-light">
-                      <a href="mailto:slayenailbar@gmail.com" className="transition-colors hover:text-primary">
+                      <a
+                        href="mailto:slayenailbar@gmail.com"
+                        className="transition-colors hover:text-primary"
+                      >
                         slayenailbar@gmail.com
                       </a>
                     </p>
@@ -163,13 +173,16 @@ export function Contact() {
           {/* Google Maps Embed */}
           <SlideUp>
             <div className="relative h-[320px] overflow-hidden rounded-xl border border-border shadow-lg sm:h-[420px] md:h-[480px] lg:h-full lg:min-h-[520px]">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.2122696946617!2d-78.5440563!3d35.966235499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac516df6b51175%3A0x183d8ff2b6b44886!2sNAIL%20KITCHEN%20-%20WAKE%20FOREST!5e0!3m2!1sen!2s!4v1775574405779!5m2!1sen!2s" width="100%"
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.2122696946617!2d-78.5440563!3d35.966235499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac516df6b51175%3A0x183d8ff2b6b44886!2sNAIL%20KITCHEN%20-%20WAKE%20FOREST!5e0!3m2!1sen!2s!4v1775574405779!5m2!1sen!2s"
+                width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0 h-full w-full" />
+                className="absolute inset-0 h-full w-full"
+              />
             </div>
           </SlideUp>
         </div>
