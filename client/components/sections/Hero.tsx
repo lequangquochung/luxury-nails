@@ -15,12 +15,15 @@ function scrollToServices() {
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100svh-56px)] items-center justify-center overflow-hidden px-4 py-12 sm:min-h-[calc(100svh-64px)] sm:px-6 sm:py-16 lg:px-8" style={{
-      backgroundImage: `url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&h=900&fit=crop')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
-    }}>
+    <section
+      className="relative flex min-h-[calc(100svh-56px)] items-center justify-center overflow-hidden px-4 py-12 sm:min-h-[calc(100svh-64px)] sm:px-6 sm:py-16 lg:px-8"
+      style={{
+        backgroundImage: `url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&h=900&fit=crop')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {/* Dark overlay for readability */}
       <div className="absolute inset-0 bg-black/50 -z-10" />
 
@@ -32,7 +35,9 @@ export function Hero() {
         >
           <div className="mb-8 text-4xl font-bold text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-6xl">
             <p className="block font-logo-slaye sm:inline md:block">SLAYE </p>
-            <p className="block font-logo-nailbar text-3xl tracking-[0.14em] sm:mt-0 sm:inline sm:text-inherit sm:tracking-[0.08em] md:-mt-2 lg:-mt-3">NAIL BAR</p>
+            <p className="block font-logo-nailbar text-3xl tracking-[0.14em] sm:mt-0 sm:inline sm:text-inherit sm:tracking-[0.08em] md:-mt-2 lg:-mt-3">
+              NAIL BAR
+            </p>
           </div>
         </motion.div>
 
@@ -42,8 +47,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mb-8 max-w-2xl text-base font-light text-white/90 drop-shadow-md sm:text-lg md:text-2xl"
         >
-          Premium artistry meets exceptional care. Discover the art of elegant nail design
-          and indulge in a sanctuary of relaxation.
+          Premium artistry meets exceptional care. Discover the art of elegant
+          nail design and indulge in a sanctuary of relaxation.
         </motion.p>
 
         <motion.div
@@ -56,7 +61,7 @@ export function Hero() {
             href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
             target="_blank"
             rel="noreferrer"
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: "none" }}
             className="w-full rounded-lg bg-gold-dark px-6 py-4 text-base font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold hover:shadow-lg active:scale-95 sm:w-auto sm:min-w-[240px]"
           >
             Book Your Appointment
@@ -81,7 +86,9 @@ export function Hero() {
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center"
           >
-            <span className="text-sm text-white/70 mb-2">Scroll to explore</span>
+            <span className="text-sm text-white/70 mb-2">
+              Scroll to explore
+            </span>
             <svg
               className="w-6 h-6 text-white"
               fill="none"

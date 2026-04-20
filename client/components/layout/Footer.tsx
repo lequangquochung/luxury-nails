@@ -34,8 +34,12 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4 flex items-center justify-center space-x-2 sm:justify-start">
-              <span className="text-2xl font-logo-slaye text-gold-dark drop-shadow">SLAYE</span>
-              <span className="text-base font-logo-nailbar tracking-[0.28em] text-gold-dark drop-shadow">NAIL BAR</span>
+              <span className="text-2xl font-logo-slaye text-gold-dark drop-shadow">
+                SLAYE
+              </span>
+              <span className="text-base font-logo-nailbar tracking-[0.28em] text-gold-dark drop-shadow">
+                NAIL BAR
+              </span>
             </div>
             <p className="text-sm opacity-90">
               Premium nail care and artistry for the discerning client.
@@ -51,7 +55,7 @@ export function Footer() {
                   href="/our-services"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => navigateToRoute(e, '/our-services')}
+                  onClick={(e) => navigateToRoute(e, "/our-services")}
                 >
                   Full Menu
                 </motion.a>
@@ -61,7 +65,7 @@ export function Footer() {
                   href="/policies"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => navigateToRoute(e, '/policies')}
+                  onClick={(e) => navigateToRoute(e, "/policies")}
                 >
                   Policies
                 </motion.a>
@@ -71,7 +75,7 @@ export function Footer() {
                   href="#about"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => navigateToSection(e, '#about')}
+                  onClick={(e) => navigateToSection(e, "#about")}
                 >
                   About
                 </motion.a>
@@ -81,7 +85,7 @@ export function Footer() {
                   href="#services"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => navigateToSection(e, '#services')}
+                  onClick={(e) => navigateToSection(e, "#services")}
                 >
                   Signature Services
                 </motion.a>
@@ -91,7 +95,7 @@ export function Footer() {
                   href="#gallery"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => navigateToSection(e, '#gallery')}
+                  onClick={(e) => navigateToSection(e, "#gallery")}
                 >
                   Gallery
                 </motion.a>
@@ -101,7 +105,7 @@ export function Footer() {
                   href="#contact"
                   whileTap={{ scale: 0.93, x: 8 }}
                   className="hover:opacity-100 transition-all duration-300 hover:translate-x-1 inline-block"
-                  onClick={e => navigateToSection(e, '#contact')}
+                  onClick={(e) => navigateToSection(e, "#contact")}
                 >
                   Contact
                 </motion.a>
@@ -123,12 +127,18 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm opacity-90">
               <li>
-                <a href="tel:+19195562000" className="hover:opacity-100 transition-opacity">
+                <a
+                  href="tel:+19195562000"
+                  className="hover:opacity-100 transition-opacity"
+                >
                   (919) 556 2000
                 </a>
               </li>
               <li>
-                <a href="mailto:slayenailbar@gmail.com" className="hover:opacity-100 transition-opacity">
+                <a
+                  href="mailto:slayenailbar@gmail.com"
+                  className="hover:opacity-100 transition-opacity"
+                >
                   slayenailbar@gmail.com
                 </a>
               </li>
@@ -142,10 +152,20 @@ export function Footer() {
           <div className="flex flex-col items-center justify-between gap-4 text-center text-sm opacity-90 lg:flex-row lg:text-left">
             <p>&copy; {currentYear} SLAYE NAIL BAR. All rights reserved.</p>
             <div className="mt-0 flex flex-wrap justify-center gap-6 lg:justify-end">
-              <a href="https://www.instagram.com/slayenailbar" target="_blank" rel="noreferrer" className="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:opacity-100">
+              <a
+                href="https://www.instagram.com/slayenailbar"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:opacity-100"
+              >
                 Instagram
               </a>
-              <a href="https://www.facebook.com/Slayenailbar" target="_blank" rel="noreferrer" className="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:opacity-100">
+              <a
+                href="https://www.facebook.com/Slayenailbar"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:opacity-100"
+              >
                 Facebook
               </a>
             </div>
@@ -155,8 +175,11 @@ export function Footer() {
     </footer>
   );
 }
-function scrollToSectionFooter(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) {
-  const id = href.replace('#', '');
+function scrollToSectionFooter(
+  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  href: string,
+) {
+  const id = href.replace("#", "");
   const el = document.getElementById(id);
   if (el) {
     e.preventDefault();
@@ -165,7 +188,7 @@ function scrollToSectionFooter(e: React.MouseEvent<HTMLAnchorElement, MouseEvent
     const targetY = rect.top + scrollTop - 70;
     window.scrollTo({
       top: targetY,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 }

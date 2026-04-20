@@ -5,10 +5,9 @@ interface StaggerContainerProps {
   className?: string;
 }
 
-export function StaggerContainer({ children, className = "" }: StaggerContainerProps) {
-  return (
-    <div className={className}>
-      {children}
-    </div>
-  );
+export function StaggerContainer({
+  children,
+  className = "",
+}: StaggerContainerProps) {
+  return <div className={className}>{children}</div>;
 }

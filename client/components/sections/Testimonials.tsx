@@ -39,14 +39,16 @@ export function Testimonials() {
         <div className="text-center mb-16">
           <SlideUp>
             <div className="inline-block px-4 py-2 bg-accent/10 rounded-full mb-4">
-              <span className="text-accent font-medium text-sm">Testimonials</span>
+              <span className="text-accent font-medium text-sm">
+                Testimonials
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
               What Our Clients Say
             </h2>
             <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-              Don't just take our word for it. Hear from our satisfied clients about
-              their SLAYE NAIL BAR experience.
+              Don't just take our word for it. Hear from our satisfied clients
+              about their SLAYE NAIL BAR experience.
             </p>
           </SlideUp>
         </div>
@@ -75,8 +77,12 @@ export function Testimonials() {
 
                 {/* Author info */}
                 <div className="border-t border-border pt-4">
-                  <p className="font-semibold text-primary">{testimonial.name}</p>
-                  <p className="text-sm text-foreground/50">{testimonial.role}</p>
+                  <p className="font-semibold text-primary">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-sm text-foreground/50">
+                    {testimonial.role}
+                  </p>
                 </div>
               </div>
             </FadeIn>

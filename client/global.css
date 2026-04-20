@@ -1,13 +1,12 @@
 /** @import must precede all other statements */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Bodoni+Moda:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Bodoni+Moda:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-
   /**
    * Tailwind CSS theme
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
@@ -23,27 +22,27 @@
 
     --popover: 0 0% 12%;
     --popover-foreground: 45 85% 88%;
-      --foreground: 45 95% 60%;
+    --foreground: 45 95% 60%;
     --primary: 45 100% 50%;
     --primary-foreground: 0 0% 5%;
-      --card-foreground: 45 95% 60%;
+    --card-foreground: 45 95% 60%;
     --secondary: 0 0% 20%;
     --secondary-foreground: 45 85% 88%;
-      --popover-foreground: 45 95% 60%;
+    --popover-foreground: 45 95% 60%;
     --muted: 0 0% 18%;
     --muted-foreground: 45 85% 70%;
-      --primary: 45 100% 45%;
-      --primary-foreground: 0 0% 5%;
+    --primary: 45 100% 45%;
+    --primary-foreground: 0 0% 5%;
     --accent-foreground: 0 0% 5%;
 
-      --secondary-foreground: 45 95% 60%;
+    --secondary-foreground: 45 95% 60%;
     --destructive-foreground: 210 40% 98%;
 
-      --muted-foreground: 45 95% 50%;
+    --muted-foreground: 45 95% 50%;
     --input: 0 0% 15%;
     --ring: 45 100% 50%;
-      --accent: 45 100% 45%;
-      --accent-foreground: 0 0% 5%;
+    --accent: 45 100% 45%;
+    --accent-foreground: 0 0% 5%;
 
     --sidebar-background: 45 8% 8%;
 
@@ -52,63 +51,63 @@
     --sidebar-primary: 45 100% 50%;
 
     --sidebar-primary-foreground: 0 0% 5%;
-      --sidebar-foreground: 45 95% 60%;
+    --sidebar-foreground: 45 95% 60%;
     --sidebar-accent: 45 100% 50%;
 
-      --sidebar-primary: 45 100% 45%;
-      --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-primary: 45 100% 45%;
+    --sidebar-primary-foreground: 0 0% 5%;
     --sidebar-border: 0 0% 20%;
 
-      --sidebar-accent: 45 100% 45%;
-      --sidebar-accent-foreground: 0 0% 5%;
+    --sidebar-accent: 45 100% 45%;
+    --sidebar-accent-foreground: 0 0% 5%;
 
-  .dark {
-    --background: 45 8% 5%;
-    --foreground: 45 85% 90%;
+    .dark {
+      --background: 45 8% 5%;
+      --foreground: 45 85% 90%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 45 85% 90%;
+      --card: 0 0% 10%;
+      --card-foreground: 45 85% 90%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 45 85% 90%;
+      --popover: 0 0% 10%;
+      --popover-foreground: 45 85% 90%;
       --foreground: 45 95% 65%;
-    --primary: 45 100% 55%;
-    --primary-foreground: 0 0% 3%;
+      --primary: 45 100% 55%;
+      --primary-foreground: 0 0% 3%;
       --card-foreground: 45 95% 65%;
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 45 85% 90%;
+      --secondary: 0 0% 18%;
+      --secondary-foreground: 45 85% 90%;
       --popover-foreground: 45 95% 65%;
-    --muted: 0 0% 23%;
-    --muted-foreground: 45 85% 75%;
+      --muted: 0 0% 23%;
+      --muted-foreground: 45 85% 75%;
       --primary: 45 100% 40%;
       --primary-foreground: 0 0% 3%;
-    --accent-foreground: 0 0% 3%;
+      --accent-foreground: 0 0% 3%;
 
       --secondary-foreground: 45 95% 65%;
-    --destructive-foreground: 210 40% 98%;
+      --destructive-foreground: 210 40% 98%;
 
       --muted-foreground: 45 95% 45%;
-    --input: 0 0% 13%;
-    --ring: 45 100% 55%;
+      --input: 0 0% 13%;
+      --ring: 45 100% 55%;
       --accent: 45 100% 40%;
       --accent-foreground: 0 0% 3%;
-    --sidebar-primary: 45 100% 55%;
-    --sidebar-primary-foreground: 0 0% 3%;
-    --sidebar-accent: 45 100% 55%;
-    --sidebar-accent-foreground: 0 0% 3%;
-    --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 45 100% 55%;
-  }
-      --sidebar-foreground: 45 95% 65%;
+      --sidebar-primary: 45 100% 55%;
+      --sidebar-primary-foreground: 0 0% 3%;
+      --sidebar-accent: 45 100% 55%;
+      --sidebar-accent-foreground: 0 0% 3%;
+      --sidebar-border: 0 0% 18%;
+      --sidebar-ring: 45 100% 55%;
+    }
+    --sidebar-foreground: 45 95% 65%;
 
-@layer base {
-  /* removed invalid loose custom property declarations */
-  }
+    @layer base {
+      /* removed invalid loose custom property declarations */
+    }
 
-  /* removed invalid loose custom property declarations */
+    /* removed invalid loose custom property declarations */
     font-family: "Inter", sans-serif;
     font-weight: 400;
-      --sidebar-ring: 45 100% 40%;
+    --sidebar-ring: 45 100% 40%;
   }
 
   h1 {
@@ -248,12 +247,12 @@
 /* Luxury text styles */
 @layer utilities {
   .font-logo-slaye {
-    font-family: 'Bodoni Moda', 'Didot', 'Playfair Display', serif;
+    font-family: "Bodoni Moda", "Didot", "Playfair Display", serif;
     font-weight: 700;
     letter-spacing: 0.04em;
   }
   .font-logo-nailbar {
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     font-weight: 300;
     letter-spacing: 0.18em;
     text-transform: uppercase;

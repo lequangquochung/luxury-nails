@@ -7,43 +7,74 @@ export function Services() {
     {
       name: "Luxury Slaye Pedicure",
       category: "Pedicure Packages",
-      description: "Our most complete pedicure ritual with restorative care, massage, and finishing treatments.",
-      features: ["6-step package", "Callus treatment", "Collagen or paraffin", "20 min massage"],
+      description:
+        "Our most complete pedicure ritual with restorative care, massage, and finishing treatments.",
+      features: [
+        "6-step package",
+        "Callus treatment",
+        "Collagen or paraffin",
+        "20 min massage",
+      ],
     },
     {
       name: "Signature Manicure",
       category: "Manicure Packages",
-      description: "A polished manicure option with exfoliation, moisture, and a refined finish.",
-      features: ["Sugar scrub and fresh orange treatment", "Hot towel", "Paraffin or collagen gloves", "5 min massage"],
+      description:
+        "A polished manicure option with exfoliation, moisture, and a refined finish.",
+      features: [
+        "Sugar scrub and fresh orange treatment",
+        "Hot towel",
+        "Paraffin or collagen gloves",
+        "5 min massage",
+      ],
     },
     {
       name: "Gel-X",
       category: "Nail Enhancement",
-      description: "Made from soft gel full-cover tips that are pre-shaped and applied over natural nails.Cured with gel adhesive for a flexible, natural-looking, and non-damaging extension.",
-      features: ["Fast application", "Durable and long-lasting", "Lightweight", "Gentle on natural nails", "Natural feel"],
+      description:
+        "Made from soft gel full-cover tips that are pre-shaped and applied over natural nails.Cured with gel adhesive for a flexible, natural-looking, and non-damaging extension.",
+      features: [
+        "Fast application",
+        "Durable and long-lasting",
+        "Lightweight",
+        "Gentle on natural nails",
+        "Natural feel",
+      ],
     },
     {
       name: "Builder Gel  ",
       category: "Nail Enhancement",
-      description: "A thicker gel than regular gel polish, used to build structure on natural nails.Creates a strong, flexible overlay that can be refilled over time.",
-      features: ["Built directly on natural nails", "Refillable (no full removal needed)", "Strong yet lightweight", "Promotes healthier nail growth"],
+      description:
+        "A thicker gel than regular gel polish, used to build structure on natural nails.Creates a strong, flexible overlay that can be refilled over time.",
+      features: [
+        "Built directly on natural nails",
+        "Refillable (no full removal needed)",
+        "Strong yet lightweight",
+        "Promotes healthier nail growth",
+      ],
     },
   ];
 
   return (
-    <section id="services" className="py-12 md:py-20 bg-muted px-4 sm:px-6 lg:px-8">
+    <section
+      id="services"
+      className="py-12 md:py-20 bg-muted px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <SlideUp>
             <div className="inline-block px-4 py-2 bg-accent/10 rounded-full mb-4">
-              <span className="text-accent font-medium text-sm">Signature Services</span>
+              <span className="text-accent font-medium text-sm">
+                Signature Services
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
               Signature picks from the full menu
             </h2>
             <p className="text-lg text-gold-light max-w-2xl mx-auto">
-              A quick look at the real menu, with signature packages, enhancements,
-              and finishing options before you open the full service page.
+              A quick look at the real menu, with signature packages,
+              enhancements, and finishing options before you open the full
+              service page.
             </p>
           </SlideUp>
         </div>
@@ -63,7 +94,10 @@ export function Services() {
                 </p>
                 <ul className="mt-auto space-y-3 pt-2">
                   {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3 text-sm">
+                    <li
+                      key={feature}
+                      className="flex items-center gap-3 text-sm"
+                    >
                       <div className="shrink-0 w-2 h-2 bg-accent rounded-full" />
                       <span className="text-foreground/70">{feature}</span>
                     </li>
