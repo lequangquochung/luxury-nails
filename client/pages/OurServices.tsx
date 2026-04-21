@@ -298,6 +298,9 @@ function PackageCard({
 
   const showDetails = !expandable || isExpanded;
   const showSignatureGelPrice = item.name === "Signature Manicure" && Boolean(item.gel);
+  const isSinglePriceCard = !showSignatureGelPrice;
+  const useCompactDesktopSinglePrice = isSinglePriceCard && item.name.toLowerCase().includes("manicure");
+  const useFullHeightDesktopSinglePrice = isSinglePriceCard && Boolean(item.image) && !useCompactDesktopSinglePrice;
   const showTopRating = item.name === "Luxury Slaye";
   const showPopular = item.name === "Deluxe";
   const packageBadge = showTopRating ? (
@@ -401,7 +404,7 @@ function PackageCard({
                 suppressExpandTemporarily();
                 setIsImageOpen(true);
               }}
-              className="relative h-[108px] w-[108px] overflow-hidden rounded-xl border border-primary/20 bg-background/70 self-start text-left transition-transform duration-300 hover:-translate-y-0.5 sm:h-[116px] sm:w-[116px] lg:mx-4 lg:h-[112px] lg:w-[112px] lg:shrink-0"
+              className="relative h-[108px] w-[108px] overflow-hidden rounded-xl border border-primary/20 bg-background/70 self-start text-left transition-transform duration-300 hover:-translate-y-0.5 sm:h-[116px] sm:w-[116px] lg:mx-4 lg:h-[136px] lg:w-[136px] lg:shrink-0"
               aria-label={`Open preview image for ${item.name}`}
             >
             <img
@@ -450,13 +453,29 @@ function PackageCard({
         ) : null}
         <div className={[
           "grid gap-3 sm:grid-cols-1 lg:ml-6 lg:flex-1 lg:justify-end",
-          expandable ? "sm:grid-cols-1 lg:max-w-[190px]" : "",
+          expandable ? "sm:grid-cols-1 lg:max-w-[200px]" : "",
         ].join(" ")}>
-          <div className="flex w-full min-w-0 items-center rounded-2xl border border-primary/20 bg-background/70 p-4 sm:h-[116px] lg:min-w-[116px] lg:h-[112px]">
-            <div className={showSignatureGelPrice ? "w-full space-y-3" : "w-full"}>
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 lg:grid-cols-1 lg:items-start lg:gap-y-2">
+          <div className={[
+            "flex w-full min-w-0 items-center rounded-2xl border border-primary/20 bg-background/70 px-4 sm:px-5 lg:px-4",
+            useCompactDesktopSinglePrice
+              ? "py-3 min-h-[72px] sm:min-h-[76px] lg:min-h-[68px] lg:py-3"
+              : useFullHeightDesktopSinglePrice
+                ? "py-3 min-h-[72px] sm:min-h-[76px] lg:min-h-[136px] lg:py-4"
+                : isSinglePriceCard
+                ? "py-3 min-h-[72px] sm:min-h-[76px] lg:min-h-[68px] lg:py-4"
+                : "py-4 sm:py-4 sm:min-h-[124px] lg:min-h-[136px]",
+          ].join(" ")}>
+            <div className={showSignatureGelPrice ? "w-full space-y-3" : "w-full lg:text-center"}>
+              <div className={[
+                "grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1",
+                "lg:grid-cols-1 lg:gap-y-2",
+                isSinglePriceCard ? "lg:justify-items-center lg:text-center" : "lg:items-start",
+              ].join(" ")}>
                 <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">{item.regularLabel ?? "Regular polish"}</div>
-                <div className="justify-self-end text-2xl font-semibold text-primary lg:justify-self-start">{item.regular ?? "Ask"}</div>
+                <div className={[
+                  "text-2xl font-semibold text-primary",
+                  isSinglePriceCard ? "justify-self-end lg:justify-self-center" : "justify-self-end lg:justify-self-start",
+                ].join(" ")}>{item.regular ?? "Ask"}</div>
               </div>
               {showSignatureGelPrice ? (
                 <div className="border-t border-primary/15 pt-3">
@@ -555,6 +574,8 @@ function PriceListCard({ title, items }: { title: string; items: SimpleService[]
 }
 
 export default function OurServices() {
+  const [activePackageSection, setActivePackageSection] = useState<"pedicure" | "manicure">("pedicure");
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="relative overflow-hidden border-b border-border/70">
@@ -628,69 +649,92 @@ export default function OurServices() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="border-y border-border/70 bg-muted/30 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div className="w-full">
-              <p className="text-xl text-center font-bold uppercase tracking-[0.28em] text-primary">Pedicure Packages</p>
+          <div className="flex flex-col items-center gap-6">
+            <div className="text-center">
+              <p className="text-xl font-bold uppercase tracking-[0.28em] text-primary">Service Categories</p>
+            </div>
+
+            <div className="inline-flex w-full flex-col gap-3 rounded-[1.5rem] border border-primary/20 bg-background/85 p-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setActivePackageSection("pedicure")}
+                className={[
+                  "flex-1 rounded-[1.1rem] px-5 py-4 text-sm font-semibold uppercase tracking-[0.22em] transition-all duration-300",
+                  activePackageSection === "pedicure"
+                    ? "bg-primary text-primary-foreground shadow-[0_18px_45px_rgba(212,175,55,0.18)]"
+                    : "border border-primary/15 bg-background text-foreground hover:bg-primary/10",
+                ].join(" ")}
+                aria-pressed={activePackageSection === "pedicure"}
+              >
+                Pedicure Packages
+              </button>
+              <button
+                type="button"
+                onClick={() => setActivePackageSection("manicure")}
+                className={[
+                  "flex-1 rounded-[1.1rem] px-5 py-4 text-sm font-semibold uppercase tracking-[0.22em] transition-all duration-300",
+                  activePackageSection === "manicure"
+                    ? "bg-primary text-primary-foreground shadow-[0_18px_45px_rgba(212,175,55,0.18)]"
+                    : "border border-primary/15 bg-background text-foreground hover:bg-primary/10",
+                ].join(" ")}
+                aria-pressed={activePackageSection === "manicure"}
+              >
+                Manicure Packages
+              </button>
             </div>
           </div>
 
-          <div className="mt-10 grid gap-6">
-            {pedicurePackages.map((item, index) => (
-              <PackageCard key={item.name} item={item} featured={index === 0} expandable />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-border/70 bg-muted/40 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div className="w-full">
-              <div className="text-xl text-center font-bold uppercase tracking-[0.28em] text-primary">Manicure Packages</div>
+          {activePackageSection === "pedicure" ? (
+            <div className="mt-10 grid gap-6">
+              {pedicurePackages.map((item, index) => (
+                <PackageCard key={item.name} item={item} featured={index === 0} expandable />
+              ))}
             </div>
-          </div>
-
-          <div className="mt-10 grid gap-4">
-            <div className="flex h-full flex-col justify-center rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-8 lg:order-2">
-              <div className="space-y-4">
-                {experiencePromises.map((item, index) => (
-                  <div
-                    key={item}
-                    className={[
-                      "flex items-center gap-4 py-2 text-sm leading-6 text-foreground/80",
-                      index < experiencePromises.length - 1 ? "border-b border-border/60 pb-4" : "",
-                    ].join(" ")}
-                  >
-                    <div className="mt-0.5 rounded-full bg-primary/12 p-2 text-primary">
-                      <ShieldCheck className="h-4 w-4" />
-                    </div>
-                    <p>{item}</p>
+          ) : (
+            <>
+              <div className="mt-10 grid gap-4">
+                <div className="flex h-full flex-col justify-center rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-8 lg:order-2">
+                  <div className="space-y-4">
+                    {experiencePromises.map((item, index) => (
+                      <div
+                        key={item}
+                        className={[
+                          "flex items-center gap-4 py-2 text-sm leading-6 text-foreground/80",
+                          index < experiencePromises.length - 1 ? "border-b border-border/60 pb-4" : "",
+                        ].join(" ")}
+                      >
+                        <div className="mt-0.5 rounded-full bg-primary/12 p-2 text-primary">
+                          <ShieldCheck className="h-4 w-4" />
+                        </div>
+                        <p>{item}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div className="mt-8 grid gap-4 lg:grid-cols-2">
-            {manicurePackages.map((item, index) => (
-              <PackageCard key={item.name} item={item} featured={index === 0} expandable />
-            ))}
+              <div className="mt-8 grid gap-4 lg:grid-cols-2">
+                {manicurePackages.map((item, index) => (
+                  <PackageCard key={item.name} item={item} featured={index === 0} expandable />
+                ))}
 
-            <div className="rounded-[1.75rem] border border-primary/20 bg-background p-6">
-              <div className="text-xl uppercase text-center tracking-[0.26em] text-primary font-bold">Polish Change</div>
-              <div className="mt-5 grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
-                {polishChanges.map((item) => (
-                  <div key={item.name} className="rounded-2xl border border-border/70 bg-background/60 p-4 text-sm">
-                    <div className="font-semibold text-foreground">{item.name}</div>
-                    <div className="mt-2 text-foreground/72">{item.regular}</div>
-                    <div className="mt-1 text-foreground/72">{item.gel}</div>
+                <div className="rounded-[1.75rem] border border-primary/20 bg-background p-6">
+                  <div className="text-xl uppercase text-center tracking-[0.26em] text-primary font-bold">Polish Change</div>
+                  <div className="mt-5 grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
+                    {polishChanges.map((item) => (
+                      <div key={item.name} className="rounded-2xl border border-border/70 bg-background/60 p-4 text-sm">
+                        <div className="font-semibold text-foreground">{item.name}</div>
+                        <div className="mt-2 text-foreground/72">{item.regular}</div>
+                        <div className="mt-1 text-foreground/72">{item.gel}</div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </section>
 

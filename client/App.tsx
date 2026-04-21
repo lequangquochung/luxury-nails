@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
+import { FloatingBookingButton } from "./components/layout/FloatingBookingButton";
 import OurServices from "./pages/OurServices";
 import Policies from "./pages/Policies";
 
@@ -68,6 +69,7 @@ const AppContent = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      <FloatingBookingButton />
     </>
   );
 };
