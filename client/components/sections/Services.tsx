@@ -33,7 +33,7 @@ export function Services() {
             <div className="inline-block px-4 py-2 bg-accent/10 rounded-full mb-4">
               <span className="text-accent font-medium text-sm">Services</span>
             </div>
-            <h2 className="text-4xl md: text-5xl font-serif font-bold text-primary mb-6">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
               Our Premium Services
             </h2>
             <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
