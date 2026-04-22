@@ -36,6 +36,7 @@
     "client/**/*",
     "server/**/*",
     "shared/**/*",
+    "main.tsx",
     "vite.config.ts",
     "vite.config.server.ts"
   ],
