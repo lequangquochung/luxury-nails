@@ -574,7 +574,136 @@ function PriceListCard({ title, items }: { title: string; items: SimpleService[]
 }
 
 export default function OurServices() {
-  const [activePackageSection, setActivePackageSection] = useState<"pedicure" | "manicure">("pedicure");
+  const [activePackageSection, setActivePackageSection] = useState<
+    "pedicure" | "manicure" | "dipping" | "gelx" | "builderGel" | "acrylicGel" | "wax" | "kids"
+  >("pedicure");
+
+  const serviceCategoryTabs: Array<{
+    key: "pedicure" | "manicure" | "dipping" | "gelx" | "builderGel" | "acrylicGel" | "wax" | "kids";
+    label: string;
+  }> = [
+    { key: "pedicure", label: "Pedicure Packages" },
+    { key: "manicure", label: "Manicure Packages" },
+    { key: "dipping", label: "Dipping" },
+    { key: "gelx", label: "Gel X" },
+    { key: "builderGel", label: "Builder liquid gel" },
+    { key: "acrylicGel", label: "Acrylic Gel" },
+    { key: "wax", label: "Wax" },
+    { key: "kids", label: "Kids Services" },
+  ];
+
+  const renderCategoryContent = () => {
+    if (activePackageSection === "pedicure") {
+      return (
+        <div className="mt-10 grid gap-6">
+          {pedicurePackages.map((item, index) => (
+            <PackageCard key={item.name} item={item} featured={index === 0} expandable />
+          ))}
+        </div>
+      );
+    }
+
+    if (activePackageSection === "manicure") {
+      return (
+        <>
+          <div className="mt-10 grid gap-4">
+            <div className="flex h-full flex-col justify-center rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-8 lg:order-2">
+              <div className="space-y-4">
+                {experiencePromises.map((item, index) => (
+                  <div
+                    key={item}
+                    className={[
+                      "flex items-center gap-4 py-2 text-sm leading-6 text-foreground/80",
+                      index < experiencePromises.length - 1 ? "border-b border-border/60 pb-4" : "",
+                    ].join(" ")}
+                  >
+                    <div className="mt-0.5 rounded-full bg-primary/12 p-2 text-primary">
+                      <ShieldCheck className="h-4 w-4" />
+                    </div>
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            {manicurePackages.map((item, index) => (
+              <PackageCard key={item.name} item={item} featured={index === 0} expandable />
+            ))}
+
+            <div className="rounded-[1.75rem] border border-primary/20 bg-background p-6">
+              <div className="text-xl uppercase text-center tracking-[0.26em] text-primary font-bold">Polish Change</div>
+              <div className="mt-5 grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
+                {polishChanges.map((item) => (
+                  <div key={item.name} className="rounded-2xl border border-border/70 bg-background/60 p-4 text-sm">
+                    <div className="font-semibold text-foreground">{item.name}</div>
+                    <div className="mt-2 text-foreground/72">{item.regular}</div>
+                    <div className="mt-1 text-foreground/72">{item.gel}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </>
+      );
+    }
+
+    if (activePackageSection === "dipping") {
+      return (
+        <div className="mt-10">
+          <PriceListCard title="Dipping Powder" items={nailEnhancements[0].items} />
+        </div>
+      );
+    }
+
+    if (activePackageSection === "gelx") {
+      return (
+        <div className="mt-10">
+          <PriceListCard title="Gel X" items={nailEnhancements[1].items} />
+        </div>
+      );
+    }
+
+    if (activePackageSection === "builderGel") {
+      return (
+        <div className="mt-10">
+          <PriceListCard title="Builder Gel / Liquid Gel" items={nailEnhancements[2].items} />
+        </div>
+      );
+    }
+
+    if (activePackageSection === "acrylicGel") {
+      return (
+        <div className="mt-10">
+          <PriceListCard title="Acrylic Gel Powder" items={nailEnhancements[3].items} />
+        </div>
+      );
+    }
+
+    if (activePackageSection === "wax") {
+      return (
+        <div className="mt-10 grid gap-6">
+          <PriceListCard title="Waxing" items={waxingServices} />
+          <div className="rounded-[1.75rem] border border-border/80 bg-card/70 p-6 sm:p-7">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-rose-500">
+              <Scissors className="h-4 w-4" />
+              Waxing Note
+            </div>
+            <p className="mt-4 text-lg leading-7 text-foreground/78">
+              Bikini and Brazilian waxing services are not offered. Waxing services are limited to women only.
+            </p>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="mt-10">
+        <PriceListCard title="Kids Services" items={kidsServices} />
+      </div>
+    );
+  };
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -656,110 +785,40 @@ export default function OurServices() {
               <p className="text-xl font-bold uppercase tracking-[0.28em] text-primary">Service Categories</p>
             </div>
 
-            <div className="inline-flex w-full flex-col gap-3 rounded-[1.5rem] border border-primary/20 bg-background/85 p-3 sm:flex-row">
-              <button
-                type="button"
-                onClick={() => setActivePackageSection("pedicure")}
-                className={[
-                  "flex-1 rounded-[1.1rem] px-5 py-4 text-sm font-semibold uppercase tracking-[0.22em] transition-all duration-300",
-                  activePackageSection === "pedicure"
-                    ? "bg-primary text-primary-foreground shadow-[0_18px_45px_rgba(212,175,55,0.18)]"
-                    : "border border-primary/15 bg-background text-foreground hover:bg-primary/10",
-                ].join(" ")}
-                aria-pressed={activePackageSection === "pedicure"}
-              >
-                Pedicure Packages
-              </button>
-              <button
-                type="button"
-                onClick={() => setActivePackageSection("manicure")}
-                className={[
-                  "flex-1 rounded-[1.1rem] px-5 py-4 text-sm font-semibold uppercase tracking-[0.22em] transition-all duration-300",
-                  activePackageSection === "manicure"
-                    ? "bg-primary text-primary-foreground shadow-[0_18px_45px_rgba(212,175,55,0.18)]"
-                    : "border border-primary/15 bg-background text-foreground hover:bg-primary/10",
-                ].join(" ")}
-                aria-pressed={activePackageSection === "manicure"}
-              >
-                Manicure Packages
-              </button>
-            </div>
-          </div>
-
-          {activePackageSection === "pedicure" ? (
-            <div className="mt-10 grid gap-6">
-              {pedicurePackages.map((item, index) => (
-                <PackageCard key={item.name} item={item} featured={index === 0} expandable />
+            <div className="grid w-full grid-cols-1 gap-3 rounded-[1.5rem] border border-primary/20 bg-background/85 p-3 sm:grid-cols-2 lg:grid-cols-4">
+              {serviceCategoryTabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActivePackageSection(tab.key)}
+                  className={[
+                    "rounded-[1.1rem] px-5 py-4 text-sm font-semibold uppercase tracking-[0.22em] transition-all duration-300",
+                    activePackageSection === tab.key
+                      ? "bg-primary text-primary-foreground shadow-[0_18px_45px_rgba(212,175,55,0.18)]"
+                      : "border border-primary/15 bg-background text-foreground hover:bg-primary/10",
+                  ].join(" ")}
+                  aria-pressed={activePackageSection === tab.key}
+                >
+                  {tab.label}
+                </button>
               ))}
             </div>
-          ) : (
-            <>
-              <div className="mt-10 grid gap-4">
-                <div className="flex h-full flex-col justify-center rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-8 lg:order-2">
-                  <div className="space-y-4">
-                    {experiencePromises.map((item, index) => (
-                      <div
-                        key={item}
-                        className={[
-                          "flex items-center gap-4 py-2 text-sm leading-6 text-foreground/80",
-                          index < experiencePromises.length - 1 ? "border-b border-border/60 pb-4" : "",
-                        ].join(" ")}
-                      >
-                        <div className="mt-0.5 rounded-full bg-primary/12 p-2 text-primary">
-                          <ShieldCheck className="h-4 w-4" />
-                        </div>
-                        <p>{item}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 grid gap-4 lg:grid-cols-2">
-                {manicurePackages.map((item, index) => (
-                  <PackageCard key={item.name} item={item} featured={index === 0} expandable />
-                ))}
-
-                <div className="rounded-[1.75rem] border border-primary/20 bg-background p-6">
-                  <div className="text-xl uppercase text-center tracking-[0.26em] text-primary font-bold">Polish Change</div>
-                  <div className="mt-5 grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
-                    {polishChanges.map((item) => (
-                      <div key={item.name} className="rounded-2xl border border-border/70 bg-background/60 p-4 text-sm">
-                        <div className="font-semibold text-foreground">{item.name}</div>
-                        <div className="mt-2 text-foreground/72">{item.regular}</div>
-                        <div className="mt-1 text-foreground/72">{item.gel}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </section>
-
-      <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between justify-center">
-            <div className="w-full">
-              <p className="text-xl text-center font-bold uppercase tracking-[0.28em] text-primary">Nail Enhancement</p>
-            </div>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {nailEnhancements.map((group) => (
-              <PriceListCard key={group.title} title={group.title} items={group.items} />
-            ))}
-          </div>
+          {renderCategoryContent()}
         </div>
       </section>
 
       <section className="border-y border-border/70 bg-muted/45 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 lg:grid-cols-3">
-            <PriceListCard title="Add-ons" items={addOns} />
-            <PriceListCard title="Waxing" items={waxingServices} />
-            <PriceListCard title="Kids Services" items={kidsServices} />
+          <div className="flex flex-col items-center gap-6">
+            <div className="text-center">
+              <p className="text-xl font-bold uppercase tracking-[0.28em] text-primary">Add-ons</p>
+            </div>
+
+            <div className="w-full max-w-4xl">
+              <PriceListCard title="Add-ons" items={addOns} />
+            </div>
           </div>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
