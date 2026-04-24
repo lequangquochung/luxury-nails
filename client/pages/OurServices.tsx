@@ -407,19 +407,19 @@ function PackageCard({
               className="relative h-[108px] w-[108px] overflow-hidden rounded-xl border border-primary/20 bg-background/70 self-start text-left transition-transform duration-300 hover:-translate-y-0.5 sm:h-[116px] sm:w-[116px] lg:mx-4 lg:h-[136px] lg:w-[136px] lg:shrink-0"
               aria-label={`Open preview image for ${item.name}`}
             >
-            <img
-              src={item.image}
-              alt={item.imageAlt ?? item.name}
-              className="h-full w-full object-cover transition-transform duration-500"
-              onError={() => {
-                setHasPreviewImage(false);
-                setIsImageOpen(false);
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/65 via-background/10 to-transparent" />
-            <div className="absolute left-1/2 top-2 inline-flex min-w-[4.75rem] -translate-x-1/2 items-center justify-center whitespace-nowrap rounded-full border border-white/15 bg-background/65 px-3 py-1 text-center text-[9px] font-medium uppercase tracking-[0.18em] text-primary">
-              Preview
-            </div>
+              <img
+                src={item.image}
+                alt={item.imageAlt ?? item.name}
+                className="h-full w-full object-cover transition-transform duration-500"
+                onError={() => {
+                  setHasPreviewImage(false);
+                  setIsImageOpen(false);
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/65 via-background/10 to-transparent" />
+              <div className="absolute left-1/2 top-2 inline-flex min-w-[4.75rem] -translate-x-1/2 items-center justify-center whitespace-nowrap rounded-full border border-white/15 bg-background/65 px-3 py-1 text-center text-[9px] font-medium uppercase tracking-[0.18em] text-primary">
+                Preview
+              </div>
             </button>
 
             <Dialog open={isImageOpen} onOpenChange={(open) => {
@@ -462,8 +462,8 @@ function PackageCard({
               : useFullHeightDesktopSinglePrice
                 ? "py-3 min-h-[72px] sm:min-h-[76px] lg:min-h-[136px] lg:py-4"
                 : isSinglePriceCard
-                ? "py-3 min-h-[72px] sm:min-h-[76px] lg:min-h-[68px] lg:py-4"
-                : "py-4 sm:py-4 sm:min-h-[124px] lg:min-h-[136px]",
+                  ? "py-3 min-h-[72px] sm:min-h-[76px] lg:min-h-[68px] lg:py-4"
+                  : "py-4 sm:py-4 sm:min-h-[124px] lg:min-h-[136px]",
           ].join(" ")}>
             <div className={showSignatureGelPrice ? "w-full space-y-3" : "w-full lg:text-center"}>
               <div className={[
@@ -582,15 +582,15 @@ export default function OurServices() {
     key: "pedicure" | "manicure" | "dipping" | "gelx" | "builderGel" | "acrylicGel" | "wax" | "kids";
     label: string;
   }> = [
-    { key: "pedicure", label: "Pedicure Packages" },
-    { key: "manicure", label: "Manicure Packages" },
-    { key: "dipping", label: "Dipping" },
-    { key: "gelx", label: "Gel X" },
-    { key: "builderGel", label: "Builder liquid gel" },
-    { key: "acrylicGel", label: "Acrylic Gel Powder" },
-    { key: "wax", label: "Wax" },
-    { key: "kids", label: "Kids Services" },
-  ];
+      { key: "pedicure", label: "Pedicure Packages" },
+      { key: "manicure", label: "Manicure Packages" },
+      { key: "dipping", label: "Dipping" },
+      { key: "gelx", label: "Gel X" },
+      { key: "builderGel", label: "Builder liquid gel" },
+      { key: "acrylicGel", label: "Acrylic Gel Powder" },
+      { key: "wax", label: "Wax" },
+      { key: "kids", label: "Kids Services" },
+    ];
 
   const renderCategoryContent = () => {
     if (activePackageSection === "pedicure") {
@@ -631,19 +631,6 @@ export default function OurServices() {
             {manicurePackages.map((item, index) => (
               <PackageCard key={item.name} item={item} featured={index === 0} expandable />
             ))}
-
-            <div className="rounded-[1.75rem] border border-primary/20 bg-background p-6">
-              <div className="text-xl uppercase text-center tracking-[0.26em] text-primary font-bold">Polish Change</div>
-              <div className="mt-5 grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
-                {polishChanges.map((item) => (
-                  <div key={item.name} className="rounded-2xl border border-border/70 bg-background/60 p-4 text-sm">
-                    <div className="font-semibold text-foreground">{item.name}</div>
-                    <div className="mt-2 text-foreground/72">{item.regular}</div>
-                    <div className="mt-1 text-foreground/72">{item.gel}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </>
       );
@@ -819,19 +806,22 @@ export default function OurServices() {
             <div className="w-full max-w-4xl">
               <PriceListCard title="Add-ons" items={addOns} />
             </div>
+
+            <div className="w-full max-w-4xl rounded-[1.75rem] border border-primary/20 bg-card/70 p-6 sm:p-7">
+              <div className="text-center text-xl font-bold uppercase tracking-[0.26em] text-primary">Polish Change</div>
+              <div className="mt-5 grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
+                {polishChanges.map((item) => (
+                  <div key={item.name} className="rounded-2xl border border-border/70 bg-background/60 p-4 text-sm">
+                    <div className="font-semibold text-foreground">{item.name}</div>
+                    <div className="mt-2 text-foreground/72">{item.regular}</div>
+                    <div className="mt-1 text-foreground/72">{item.gel}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="rounded-[1.75rem] border border-border/80 bg-card/70 p-6 sm:p-7">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-rose-500">
-                <Scissors className="h-4 w-4" />
-                Waxing Note
-              </div>
-              <p className="mt-4 text-lg leading-7 text-foreground/78">
-                Bikini and Brazilian waxing services are not offered. Waxing services are limited to women only.
-              </p>
-            </div>
-
             <div className="rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-7">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-primary/85">
                 <GlassWater className="h-4 w-4" />
