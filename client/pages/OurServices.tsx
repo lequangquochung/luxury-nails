@@ -551,8 +551,7 @@ function PriceListCard({ title, items }: { title: string; items: SimpleService[]
       transition={{ duration: 0.45 }}
       className="rounded-[1.75rem] border border-border/80 bg-card/70 p-6"
     >
-      <h3 className="text-2xl text-foreground">{title}</h3>
-      <div className="mt-6 space-y-4">
+      <div className="space-y-4">
         {items.map((item) => (
           <div key={`${title}-${item.name}`} className="rounded-2xl border border-border/70 bg-background/55 p-4">
             <div className="flex items-start justify-between gap-3">
@@ -807,9 +806,9 @@ export default function OurServices() {
               <PriceListCard title="Add-ons" items={addOns} />
             </div>
 
+            <div className="text-center text-xl font-bold uppercase tracking-[0.26em] text-primary">Polish Change</div>
             <div className="w-full max-w-4xl rounded-[1.75rem] border border-primary/20 bg-card/70 p-6 sm:p-7">
-              <div className="text-center text-xl font-bold uppercase tracking-[0.26em] text-primary">Polish Change</div>
-              <div className="mt-5 grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
+              <div className=" grid gap-4 sm:grid-cols-1 xl:grid-cols-2">
                 {polishChanges.map((item) => (
                   <div key={item.name} className="rounded-2xl border border-border/70 bg-background/60 p-4 text-sm">
                     <div className="font-semibold text-foreground">{item.name}</div>
