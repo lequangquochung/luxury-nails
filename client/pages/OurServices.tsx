@@ -184,7 +184,7 @@ const nailEnhancements: Array<{ title: string; items: SimpleService[] }> = [
     items: [
       { name: "Full Set", price: "$65+" },
       { name: "Refill", price: "$55+" },
-      { name: "Removal and Redo", price: "$10+" },
+      { name: "Removal and Redo", price: "$75+" },
       { name: "Soak Off Only", price: "$20+" },
     ],
   },
@@ -193,7 +193,7 @@ const nailEnhancements: Array<{ title: string; items: SimpleService[] }> = [
     items: [
       { name: "Full Set", price: "$65+" },
       { name: "Refill", price: "$55+" },
-      { name: "Removal and Redo", price: "$15+" },
+      { name: "Removal and Redo", price: "$80+" },
       { name: "Soak Off Only", price: "$20+" },
     ],
   },
@@ -587,7 +587,7 @@ export default function OurServices() {
     { key: "dipping", label: "Dipping" },
     { key: "gelx", label: "Gel X" },
     { key: "builderGel", label: "Builder liquid gel" },
-    { key: "acrylicGel", label: "Acrylic Gel" },
+    { key: "acrylicGel", label: "Acrylic Gel Powder" },
     { key: "wax", label: "Wax" },
     { key: "kids", label: "Kids Services" },
   ];
