@@ -95,7 +95,6 @@ const pedicurePackages: PackageItem[] = [
       "Trim, shape, and cuticle treatment",
       "Sugar scrub and fresh orange treatment",
       "Lotion massage and hot towel",
-      "Callus treatment",
       "Stone massage",
       "Neck wrap",
       "Polish finish",
