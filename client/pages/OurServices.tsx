@@ -192,7 +192,7 @@ const nailEnhancements: Array<{ title: string; items: SimpleService[] }> = [
     items: [
       { name: "Full Set", price: "$65+" },
       { name: "Refill", price: "$55+" },
-      { name: "Full Set w/ Removal and Redo", price: "$80+" },
+      { name: "Full Set w/ Removal and Redo", price: "$75+" },
       { name: "Soak Off Only", price: "$20+" },
     ],
   },
