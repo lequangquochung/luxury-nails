@@ -44,20 +44,30 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "NailSalon",
-      "name": "SLAYE NAIL BAR",
-      "url": "https://www.slayenail.com/",
-      "logo": "https://www.slayenail.com/imgs/logo-top-1.png",
-      "image": "https://www.slayenail.com/imgs/logo-top-1.png",
-      "description": "Premium nail salon in Wake Forest and Raleigh offering luxury manicures, pedicures, and custom nail art.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Wake Forest",
-        "addressRegion": "NC",
-        "addressCountry": "US"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "SLAYE NAIL BAR",
+          "alternateName": "Slaye Nail",
+          "url": "https://www.slayenail.com/"
+        },
+        {
+          "@type": "NailSalon",
+          "name": "SLAYE NAIL BAR",
+          "url": "https://www.slayenail.com/",
+          "logo": "https://www.slayenail.com/imgs/logo-top-1.png",
+          "image": "https://www.slayenail.com/imgs/logo-top-1.png",
+          "description": "Premium nail salon in Wake Forest and Raleigh offering luxury manicures, pedicures, and custom nail art.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Wake Forest",
+            "addressRegion": "NC",
+            "addressCountry": "US"
+          }
+        }
+      ]
     }
-  </script>
+    </script>
 </head>
 
 <body>
