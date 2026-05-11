@@ -10,6 +10,7 @@ export default function Index() {
   return (
     <>
       {/* <PromoPopup /> */}
+      <h1 style={{ display: "none" }}>SLAYE NAIL BAR</h1>
       <div className="min-h-screen bg-background text-foreground">
         <Hero />
         <About />

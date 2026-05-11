@@ -819,7 +819,7 @@ export default function OurServices() {
             </div>
           </div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="mt-8 grid gap-6 lg:grid-cols-1">
             <div className="rounded-[1.75rem] border border-primary/20 bg-background p-6 sm:p-7">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-primary/85">
                 <GlassWater className="h-4 w-4" />
