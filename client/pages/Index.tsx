@@ -9,8 +9,8 @@ import PromoPopup from "../components/PromoPopup";
 export default function Index() {
   return (
     <>
-      <PromoPopup />
-      <h1 style={{ display: "none" }}>SLAYE NAIL BAR</h1>
+      {/* <PromoPopup /> */}
+      <h1 className="sr-only">SLAYE NAIL BAR</h1>
       <div className="min-h-screen bg-background text-foreground">
         <Hero />
         <About />
