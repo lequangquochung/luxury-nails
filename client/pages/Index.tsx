@@ -9,7 +9,7 @@ import PromoPopup from "../components/PromoPopup";
 export default function Index() {
   return (
     <>
-      <PromoPopup />
+      {/* <PromoPopup /> */}
       <h1 className="sr-only">SLAYE NAIL BAR</h1>
       <div className="min-h-screen bg-background text-foreground">
         <Hero />
@@ -17,7 +17,7 @@ export default function Index() {
         <Services />
         <Gallery />
         <FacilityGallery />
-        <Contact />
+        <Contact />1
       </div>
     </>
   );
