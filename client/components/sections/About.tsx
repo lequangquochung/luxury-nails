@@ -11,7 +11,7 @@ export function About() {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="/imgs/gallery-1.jpg"
+                  src="/imgs/gallery-9.jpeg"
                   alt="Luxury nail salon interior"
                   className="w-full h-full object-cover"
                 />
@@ -44,7 +44,7 @@ export function About() {
                   Unlike traditional approaches that may leave nails thin, weak, or damaged over time, we focus on preserving and improving the condition of your natural nails with every visit. Whether you're here for a manicure, pedicure, gel service, or nail enhancements, our goal is simple: beautiful results today and healthier nails tomorrow. Because confidence starts with healthy nails, and healthy nails never go out of style.
                 </p>
 
-                <p className="mb-6 text-base text-gold-light sm:text-lg text-left">
+                {/* <p className="mb-6 text-base text-gold-light sm:text-lg text-left">
                   Nail Health First
                   Every service is designed to protect and strengthen your natural nails, never compromise them
                 </p>
@@ -61,7 +61,7 @@ export function About() {
                   Exclusively sourced, non-toxic, and cruelty-free materials
                   Hygiene First
                   Hospital-grade sterilization for all tools and equipment
-                </p>
+                </p> */}
               </div>
 
               <div className="space-y-4">
