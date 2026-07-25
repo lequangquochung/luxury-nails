@@ -1,4 +1,31 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+const registerUrl = "https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/coupon-receive-v2";
+
+function RegisterButton() {
+  const ref = useRef<HTMLAnchorElement | null>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      ref.current?.focus();
+    }, 600);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <a
+      ref={ref}
+      tabIndex={0}
+      href={registerUrl}
+      target="_blank"
+      rel="noreferrer"
+      className="block w-full rounded-lg border-2 border-gold-dark bg-background px-6 py-4 text-base font-semibold text-gold-dark transition-all duration-300 hover:-translate-y-0.5 hover:text-gold hover:shadow-lg active:scale-95 focus:outline-none md:w-auto md:min-w-[240px]"
+    >
+      Register to Receive Coupon
+    </a>
+  );
+}
 
 function scrollToServices() {
   const el = document.getElementById("services");
@@ -50,24 +77,31 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
+          className="flex w-full flex-col items-center gap-3 md:gap-6 lg:gap-8"
         >
-          <a
-            href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
-            target="_blank"
-            rel="noreferrer"
-            style={{ textDecoration: 'none' }}
-            className="w-full rounded-lg bg-gold-dark px-6 py-4 text-base font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold hover:shadow-lg active:scale-95 sm:w-auto sm:min-w-[240px]"
-          >
-            Book Your Appointment
-          </a>
-          <button
-            className="w-full rounded-lg border-2 border-gold-dark bg-background px-6 py-4 text-base font-semibold text-gold-dark transition-all duration-300 hover:-translate-y-0.5 hover:text-gold hover:shadow-lg active:scale-95 sm:w-auto sm:min-w-[240px]"
-            onClick={scrollToServices}
-          >
-            View Signature Services
-          </button>
+          <div className="w-full flex flex-col gap-3 md:flex-row md:items-center md:justify-center md:gap-4">
+            <a
+              href="https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/booking-v3"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: 'none' }}
+              className="block w-full rounded-lg bg-gold-dark px-6 py-4 text-base font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold hover:shadow-lg active:scale-95 md:w-auto md:min-w-[240px]"
+            >
+              Book Your Appointment
+            </a>
+            <button
+              className="block w-full rounded-lg border-2 border-gold-dark bg-background px-6 py-4 text-base font-semibold text-gold-dark transition-all duration-300 hover:-translate-y-0.5 hover:text-gold hover:shadow-lg active:scale-95 md:w-auto md:min-w-[240px]"
+              onClick={scrollToServices}
+            >
+              View Signature Services
+            </button>
+            </div>
+
+            <div className="w-full flex justify-center md:justify-center">
+              <RegisterButton />
+            </div>
         </motion.div>
+        
 
         {/* Scroll indicator */}
         <motion.div
