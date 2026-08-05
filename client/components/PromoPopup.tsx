@@ -33,7 +33,7 @@ export default function PromoPopup() {
           <div className="relative z-10 max-w-3xl w-full mx-4 p-6 bg-background text-foreground border border-gold/10 shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
               <div>
-                <img src="/imgs/slaye.jpg" alt="promo" className="w-full rounded-md object-cover max-h-64 shadow-lg" />
+                <img src="/imgs/special-offer.png" alt="promo" className="w-full rounded-md object-cover max-h-64 shadow-lg" />
               </div>
               <div>
                 <h3 className="text-2xl font-logo-slaye text-gold mb-2">Special Offer</h3>
@@ -45,7 +45,7 @@ export default function PromoPopup() {
               </div>
             </div>
 
-            <button onClick={close} className="absolute right-6 bottom-6 md:right-8 md:bottom-8 rounded-lg bg-gold-dark px-5 py-2 text-sm font-semibold text-primary-foreground">Close</button>
+            <button onClick={close} className="hidden sm:inline-flex absolute right-6 bottom-6 md:right-8 md:bottom-8 rounded-lg bg-gold-dark px-5 py-2 text-sm font-semibold text-primary-foreground">Close</button>
           </div>
         </div>
       )}
