@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const registerUrl = "https://customer.fozito.com/store/242b63c6-3466-447a-8b00-0941827b8a9b/coupon-receive-v2";
 
@@ -27,20 +28,10 @@ function RegisterButton() {
   );
 }
 
-function scrollToServices() {
-  const el = document.getElementById("services");
-  if (el) {
-    const rect = el.getBoundingClientRect();
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const targetY = rect.top + scrollTop - 70; // Offset for sticky header
-    window.scrollTo({
-      top: targetY,
-      behavior: "smooth",
-    });
-  }
-}
 
 export function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative flex min-h-[calc(100svh-56px)] items-center justify-center overflow-hidden px-4 py-12 sm:min-h-[calc(100svh-64px)] sm:px-6 sm:py-16 lg:px-8" style={{
       backgroundImage: `url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&h=900&fit=crop')`,
@@ -91,9 +82,9 @@ export function Hero() {
             </a>
             <button
               className="block w-full rounded-lg border-2 border-gold-dark bg-background px-6 py-4 text-base font-semibold text-gold-dark transition-all duration-300 hover:-translate-y-0.5 hover:text-gold hover:shadow-lg active:scale-95 md:w-auto md:min-w-[240px]"
-              onClick={scrollToServices}
+              onClick={() => navigate("/our-services")}
             >
-              View Signature Services
+              View Full Menu
             </button>
             </div>
 

@@ -32,6 +32,10 @@ type PackageItem = {
   massage?: string;
   image?: string;
   imageAlt?: string;
+  seasonal?: boolean;
+  promoPrice?: string;
+  originalPrice?: string;
+  promoNote?: string;
 };
 
 type SimpleService = {
@@ -48,6 +52,33 @@ type SplitPriceService = {
 
 const pedicurePackages: PackageItem[] = [
   {
+    name: "Seasonal",
+    description: "Seasonal spotlight — limited-time treatment. Image is a temporary placeholder.",
+    image: "/imgs/seasonal.png",
+    imageAlt: "Seasonal spotlight preview",
+    includes: [
+      "Warm Neck Wrap",
+      "Tropical Detox Mineral Soak",
+      "Sunset Bubble Bomb",
+      "Callus Treatment",
+      "Tropical Sugar Scrub",
+      "Vitamin C Citrus Cream Mask",
+      "Collagen Shea Butter Lotion",
+      "Wooden Reflexology Massage",
+      "Hot Stone Therapy",
+      "10-Minute Aromatherapy Massage",
+      "Warm Towel Wrap",
+      "Complimentary Tropical Beverage",
+    ],
+    massage: "10 min massage",
+    seasonal: true,
+    promoPrice: "$63",
+    originalPrice: "$75",
+    promoNote: "Add on gel polish $20",
+    gel: "$20",
+    gelLabel: "Gel +$20",
+  },
+  {
     name: "Luxury Slaye",
     regular: "$90",
     gel: "$110",
@@ -58,7 +89,7 @@ const pedicurePackages: PackageItem[] = [
       "6-step package",
       "Trim, shape, and cuticle treatment",
       "Sugar scrub and fresh orange treatment",
-      "Lotion massage and callus treatment",
+      "Lotion massage and cuticle treatment",
       "Wooden foot roller massage",
       "Oil candle massage and stone massage",
       "Collagen or paraffin treatment",
@@ -302,6 +333,12 @@ function PackageCard({
   const useFullHeightDesktopSinglePrice = isSinglePriceCard && Boolean(item.image) && !useCompactDesktopSinglePrice;
   const showTopRating = item.name === "Luxury Slaye";
   const showPopular = item.name === "Deluxe";
+  const isSeasonal = Boolean(item.seasonal);
+  const seasonalBadge = isSeasonal ? (
+    <div className="inline-flex shrink-0 items-center rounded-full border border-emerald-600/60 bg-emerald-100 px-3 py-1 text-emerald-600 text-[10px] font-semibold uppercase tracking-[0.18em]">
+      Seasonal
+    </div>
+  ) : null;
   const packageBadge = showTopRating ? (
     <div className="inline-flex shrink-0 items-center gap-0.5 rounded-full border border-primary/20 bg-primary/10 px-2 py-1 text-primary sm:gap-1 sm:px-3 sm:py-1.5">
       {Array.from({ length: 5 }).map((_, index) => (
@@ -354,14 +391,19 @@ function PackageCard({
       tabIndex={expandable && !isImageOpen ? 0 : undefined}
       aria-expanded={expandable ? isExpanded : undefined}
       className={[
-        "rounded-[1.75rem] border p-5 sm:p-7",
+        "relative rounded-[1.75rem] border p-5 sm:p-7",
         expandable && !isImageOpen ? "cursor-pointer" : "",
         isImageOpen ? "pointer-events-none" : "",
-        featured
-          ? "border-border/80 bg-card/70"
+        isSeasonal
+          ? "ring-4 ring-emerald-600/100 shadow-[0_40px_100px_rgba(16,185,129,0.34)] border-2 border-emerald-600/100 bg-gradient-to-b from-emerald-100/18 to-emerald-200/20 text-emerald-600"
           : "border-border/80 bg-card/70",
       ].join(" ")}
     >
+      {isSeasonal ? (
+        <div className="absolute -top-3 -right-3 z-20 rotate-6 transform-gpu">
+          <div className="rounded-md bg-emerald-700/95 px-3 py-1 text-xs font-semibold uppercase text-white shadow-lg">Limited Time</div>
+        </div>
+      ) : null}
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
         <div className="min-w-0 flex-1">
           {expandable ? (
@@ -371,8 +413,9 @@ function PackageCard({
                   {item.name}
                 </h3>
                 {packageBadge}
+                {seasonalBadge}
               </div>
-              {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
+              {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-primary">{item.description}</p> : null}
               <div className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-primary/80">
                 <ChevronDown className={[
                   "h-3.5 w-3.5 transition-transform duration-300",
@@ -389,7 +432,7 @@ function PackageCard({
                 </h3>
                 {packageBadge}
               </div>
-              {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-foreground/68">{item.description}</p> : null}
+              {item.description ? <p className="mt-3 max-w-xl text-sm leading-6 text-primary">{item.description}</p> : null}
             </>
           )}
         </div>
@@ -464,27 +507,42 @@ function PackageCard({
                   ? "py-3 min-h-[72px] sm:min-h-[76px] lg:min-h-[68px] lg:py-4"
                   : "py-4 sm:py-4 sm:min-h-[124px] lg:min-h-[136px]",
           ].join(" ")}>
-            <div className={showSignatureGelPrice ? "w-full space-y-3" : "w-full lg:text-center"}>
-              <div className={[
-                "grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1",
-                "lg:grid-cols-1 lg:gap-y-2",
-                isSinglePriceCard ? "lg:justify-items-center lg:text-center" : "lg:items-start",
-              ].join(" ")}>
-                <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">{item.regularLabel ?? "Regular polish"}</div>
+            {isSeasonal ? (
+              <div className="w-full lg:text-center">
                 <div className={[
-                  "text-2xl font-semibold text-primary",
-                  isSinglePriceCard ? "justify-self-end lg:justify-self-center" : "justify-self-end lg:justify-self-start",
-                ].join(" ")}>{item.regular ?? "Ask"}</div>
-              </div>
-              {showSignatureGelPrice ? (
-                <div className="border-t border-primary/15 pt-3">
-                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 lg:grid-cols-1 lg:items-start lg:gap-y-2">
-                    <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">Gel polish</div>
-                    <div className="justify-self-end text-2xl font-semibold text-primary lg:justify-self-start">{item.gel}</div>
-                  </div>
+                  "grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1",
+                  "lg:grid-cols-1 lg:gap-y-2",
+                ].join(" ")}>
+                  <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">Limited time</div>
+                  <div className={[
+                    "text-2xl font-semibold",
+                      "text-rose-500",
+                  ].join(" ")}>{item.promoPrice ?? item.regular ?? "Ask"}</div>
                 </div>
-              ) : null}
-            </div>
+              </div>
+            ) : (
+              <div className={showSignatureGelPrice ? "w-full space-y-3" : "w-full lg:text-center"}>
+                <div className={[
+                  "grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1",
+                  "lg:grid-cols-1 lg:gap-y-2",
+                  isSinglePriceCard ? "lg:justify-items-center lg:text-center" : "lg:items-start",
+                ].join(" ")}>
+                  <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">{item.regularLabel ?? "Regular polish"}</div>
+                  <div className={[
+                    "text-2xl font-semibold text-primary",
+                    isSinglePriceCard ? "justify-self-end lg:justify-self-center" : "justify-self-end lg:justify-self-start",
+                  ].join(" ")}>{item.regular ?? "Ask"}</div>
+                </div>
+                {showSignatureGelPrice ? (
+                  <div className="border-t border-primary/15 pt-3">
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 lg:grid-cols-1 lg:items-start lg:gap-y-2">
+                      <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">Gel polish</div>
+                      <div className="justify-self-end text-2xl font-semibold text-primary lg:justify-self-start">{item.gel}</div>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            )}
           </div>
           {item.gel && !expandable ? (
             <div className="w-full min-w-0 rounded-2xl border border-primary/20 bg-background/70 p-4 lg:min-w-[116px]">
