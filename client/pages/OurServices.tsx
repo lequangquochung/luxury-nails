@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+// @ts-ignore: external library, install with `pnpm add plyr` or `npm install plyr`
+import Plyr from 'plyr';
+import 'plyr/dist/plyr.css';
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
@@ -52,7 +55,7 @@ type SplitPriceService = {
 
 const pedicurePackages: PackageItem[] = [
   {
-    name: "Seasonal",
+    name: "Tropical Sunset",
     description: "Seasonal spotlight — limited-time treatment. Image is a temporary placeholder.",
     image: "/imgs/seasonal.png",
     imageAlt: "Seasonal spotlight preview",
@@ -513,10 +516,10 @@ function PackageCard({
                   "grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1",
                   "lg:grid-cols-1 lg:gap-y-2",
                 ].join(" ")}>
-                  <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">Limited time</div>
+                  <div className="text-xs uppercase tracking-[0.18em] text-foreground/58 lg:whitespace-nowrap">Regular Polish</div>
                   <div className={[
                     "text-2xl font-semibold",
-                      "text-rose-500",
+                    "text-rose-500",
                   ].join(" ")}>{item.promoPrice ?? item.regular ?? "Ask"}</div>
                 </div>
               </div>
@@ -648,6 +651,37 @@ export default function OurServices() {
       { key: "kids", label: "Kids Services" },
     ];
 
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const plyrInstanceRef = useRef<any | null>(null);
+
+  useEffect(() => {
+    const el = videoRef.current as any;
+    if (!el) return;
+
+    // Initialize Plyr once
+    if (!plyrInstanceRef.current) {
+      try {
+        plyrInstanceRef.current = new Plyr(el, {
+          controls: ['play', 'progress', 'mute', 'fullscreen'],
+          autoplay: true,
+          muted: true,
+          loop: { active: true },
+        });
+      } catch (e) {
+        // ignore init errors
+      }
+    }
+
+    return () => {
+      if (plyrInstanceRef.current) {
+        try {
+          plyrInstanceRef.current.destroy();
+        } catch (e) {}
+        plyrInstanceRef.current = null;
+      }
+    };
+  }, []);
+
   const renderCategoryContent = () => {
     if (activePackageSection === "pedicure") {
       return (
@@ -754,7 +788,7 @@ export default function OurServices() {
         <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-background lg:block" />
 
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-primary">
               <Sparkles className="h-4 w-4" />
@@ -818,6 +852,27 @@ export default function OurServices() {
               </div>
             </div>
           </motion.div>
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <div className="rounded-[1.75rem] border border-border/80 bg-card/70 p-6 sm:p-8 shadow-lg">
+            <div className="aspect-[16/9] w-full overflow-hidden rounded-[1rem] relative">
+              <video
+                ref={videoRef}
+                playsInline
+                muted
+                loop
+                autoPlay
+                className="w-full h-full object-cover"
+              >
+                <source src="/vids/seasonal.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div>
         </div>
       </section>
 
