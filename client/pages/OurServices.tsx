@@ -666,6 +666,9 @@ export default function OurServices() {
           autoplay: true,
           muted: true,
           loop: { active: true },
+          ratio: '16:9',
+          fullscreen: { enabled: true, fallback: true, iosNative: false },
+          playsinline: true,
         });
       } catch (e) {
         // ignore init errors
