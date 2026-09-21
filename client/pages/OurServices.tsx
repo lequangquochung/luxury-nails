@@ -55,23 +55,24 @@ type SplitPriceService = {
 
 const pedicurePackages: PackageItem[] = [
   {
-    name: "Tropical Sunset",
-    description: "Seasonal spotlight — limited-time treatment. Image is a temporary placeholder.",
-    image: "/imgs/seasonal.png",
+    name: "Cozy Harvest Pedicure",
+    description: "A cozy seasonal ritual featuring pumpkin spice soak and milk & honey care — pure comfort in every step.",
+    image: "/imgs/tropical.png",
     imageAlt: "Seasonal spotlight preview",
     includes: [
       "Warm Neck Wrap",
-      "Tropical Detox Mineral Soak",
-      "Sunset Bubble Bomb",
-      "Callus Treatment",
-      "Tropical Sugar Scrub",
-      "Vitamin C Citrus Cream Mask",
-      "Collagen Shea Butter Lotion",
-      "Wooden Reflexology Massage",
+      "Pumpkin Spice Soak",
+      "Milk & Honey Sugar Scrub",
+      "Cuticle Treatment & Nail Trim",
+      "Milk & Honey Cream Mask",
+      "Slaye Nourishing Serum",
+      "Wooden Pressure-Point Massage",
+      "Pumpkin Spice Lotion",
+      "10-Minute Massage",
+      "Oil Candle Massage",
       "Hot Stone Therapy",
-      "10-Minute Aromatherapy Massage",
       "Warm Towel Wrap",
-      "Complimentary Tropical Beverage",
+      "Complimentary Seasonal Beverage",
     ],
     massage: "10 min massage",
     seasonal: true,
@@ -858,18 +859,12 @@ export default function OurServices() {
         </div>
         <div className="relative mx-auto max-w-7xl px-4 pb-16">
           <div className="rounded-[1.75rem] border border-border/80 bg-card/70 p-6 sm:p-8 shadow-lg">
-            <div className="aspect-[16/9] w-full overflow-hidden rounded-[1rem] relative">
-              <video
-                ref={videoRef}
-                playsInline
-                muted
-                loop
-                autoPlay
+            <div className="aspect-[3/4] w-full max-w-sm mx-auto overflow-hidden rounded-[1rem] relative">
+              <img
+                src="/imgs/tropical_intro.png"
+                alt="Cozy Harvest Pedicure seasonal intro"
                 className="w-full h-full object-cover"
-              >
-                <source src="/vids/seasonal.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              />
             </div>
           </div>
         </div>
