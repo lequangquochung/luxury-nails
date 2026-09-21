@@ -680,7 +680,7 @@ export default function OurServices() {
       if (plyrInstanceRef.current) {
         try {
           plyrInstanceRef.current.destroy();
-        } catch (e) {}
+        } catch (e) { }
         plyrInstanceRef.current = null;
       }
     };
@@ -859,17 +859,23 @@ export default function OurServices() {
         </div>
         <div className="relative mx-auto max-w-7xl px-4 pb-16">
           <div className="rounded-[1.75rem] border border-border/80 bg-card/70 p-6 sm:p-8 shadow-lg">
-            <div className="aspect-[3/4] w-full max-w-sm mx-auto overflow-hidden rounded-[1rem] relative">
-              <img
-                src="/imgs/tropical_intro.png"
-                alt="Cozy Harvest Pedicure seasonal intro"
+            <div className=" w-full mx-auto overflow-hidden rounded-[1rem] relative">
+              <video
+                ref={videoRef}
+                playsInline
+                muted
+                loop
+                autoPlay
                 className="w-full h-full object-cover"
-              />
+              >
+                <source src="/vids/tropical.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
-        
-        
+
+
         <div>
         </div>
       </section>
