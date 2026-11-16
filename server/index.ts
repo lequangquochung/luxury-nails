@@ -7,6 +7,17 @@ export function createServer() {
   const app = express();
 
   // Middleware
+  // Redirect non-www to www (301 redirect for SEO)
+  app.use((req, res, next) => {
+    const host = req.get("host");
+    if (host && !host.startsWith("localhost") && !host.startsWith("127.0.0.1")) {
+      if (host.startsWith("slayenail.com")) {
+        return res.redirect(301, `https://www.${host}${req.url}`);
+      }
+    }
+    next();
+  });
+
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
